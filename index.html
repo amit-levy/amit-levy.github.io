@@ -1,37 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Amit Levy | Historian</title>
+    <title>Dr. Amit Levy | Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #1a2a3a; --accent: #3498db; --bg: #ffffff; --text: #333; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.7; margin: 0; padding: 0; }
         nav { background: #fff; padding: 1.5rem; text-align: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
-        nav a { margin: 0 20px; text-decoration: none; color: var(--primary); font-weight: 600; font-size: 1rem; transition: color 0.3s; }
-        nav a:hover { color: var(--accent); }
+        nav a { margin: 0 20px; text-decoration: none; color: var(--primary); font-weight: 600; font-size: 1rem; }
         header { padding: 4rem 1rem; text-align: center; background: #f9f9fb; }
         h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 0; color: var(--primary); }
         .tagline { font-size: 1.25rem; color: #666; margin-top: 0.5rem; }
-        .container { max-width: 900px; margin: 3rem auto; padding: 0 1.5rem; }
-        .profile-section { display: flex; align-items: center; gap: 4rem; flex-wrap: wrap; margin-bottom: 4rem; }
-        .profile-info { flex: 2; min-width: 300px; }
-.profile-img {
-    flex: 1;
-    min-width: 250px;
-    max-width: 300px;
-    height: auto;
-    border-radius: 4px;
-    object-fit: cover;
-    box-shadow: 10px 10px 0px var(--primary);
-}        
-        h2 { font-family: 'Playfair Display', serif; color: var(--primary); font-size: 1.8rem; border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-top: 2.5rem; }
-        .cv-item { margin-bottom: 1.5rem; }
-        .cv-item strong { display: block; color: var(--primary); }
-        .year { font-weight: 600; color: var(--accent); margin-right: 8px; }
+        .container { max-width: 1000px; margin: 3rem auto; padding: 0 1.5rem; }
+        .profile-layout { display: flex; gap: 4rem; flex-wrap: wrap; margin-bottom: 4rem; }
+        .main-content { flex: 2; min-width: 350px; }
+        .sidebar { flex: 1; min-width: 250px; background: #f9f9fb; padding: 1.5rem; border-radius: 4px; border: 1px solid #eee; height: fit-content; }
+        .profile-img { width: 100%; max-width: 300px; height: auto; border-radius: 4px; margin-bottom: 1.5rem; box-shadow: 10px 10px 0px var(--primary); }
+        h2 { font-family: 'Playfair Display', serif; color: var(--primary); font-size: 1.8rem; border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-top: 0; }
+        h3 { font-size: 1.1rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .interests-list { list-style: none; padding: 0; margin: 0; }
+        .interests-list li { margin-bottom: 0.5rem; padding-left: 1rem; border-left: 2px solid var(--accent); font-size: 0.95rem; }
         .footer { text-align: center; padding: 4rem 1rem; color: #999; font-size: 0.9rem; border-top: 1px solid #eee; }
-        .social-links a { color: var(--accent); text-decoration: none; font-weight: 600; margin-right: 15px; }
+        .contact-links a { color: var(--accent); text-decoration: none; font-weight: 600; margin-right: 15px; }
     </style>
 </head>
 <body>
@@ -43,54 +35,39 @@
 
 <header>
     <h1>Dr. Amit Levy</h1>
-    <p class="tagline">Buber Postdoctoral Fellow | The Hebrew University of Jerusalem</p>
+    <p class="tagline">Martin Buber Fellow | The Hebrew University of Jerusalem</p>
 </header>
 
 <div class="container">
-    <section class="profile-section">
-        <div class="profile-info">
-            <h2>About Me</h2>
-            <p>I am a historian of the modern Middle East, specializing in the history of knowledge, Oriental Studies, and German-Jewish cultural transfers to Palestine/Israel.</p>
-            <p>My research explores how academic traditions migrated and transformed during the 20th century, with a focus on the social and cultural history of the British Mandate and the early State of Israel.</p>
-            <div class="social-links">
-                <a href="mailto:amit.levy@mail.huji.ac.il">Email</a> | 
-                <a href="https://huji.academia.edu/AmitLevy">Academia.edu</a> | 
+    <div class="profile-layout">
+        <aside class="sidebar">
+            <img src="profile.jpg" alt="Dr. Amit Levy" class="profile-img">
+            <h3>Research Interests</h3>
+            <ul class="interests-list">
+                <li>History of Knowledge</li>
+                <li>Transnational Encounters</li>
+                <li>Modern European History</li>
+                <li>Middle Eastern & Jewish Studies</li>
+                <li>Imperial & Colonial Studies</li>
+            </ul>
+            <div class="contact-links" style="margin-top: 2rem;">
+                <a href="mailto:amitlevy87@gmail.com">Email</a>
             </div>
-        </div>
-<img src="profile.jpg" alt="Dr. Amit Levy" class="profile-img">    </section>
+        </aside>
 
-    <section>
-        <h2>Academic Appointments</h2>
-        <div class="cv-item">
-            <span class="year">2025–2029</span>
-            <strong>Martin Buber Postdoctoral Fellowship</strong>
-            Jack, Joseph and Morton Mandel School, Hebrew University of Jerusalem.
-        </div>
-        <div class="cv-item">
-            <span class="year">2024–2025</span>
-            <strong>Spinoza Postdoctoral Fellowship</strong>
-            Department of Israel Studies, University of Haifa.
-        </div>
-        <div class="cv-item">
-            <span class="year">2024</span>
-            <strong>Salo & Jeannette Baron Visiting Fellowship</strong>
-            Oxford Centre for Hebrew and Jewish Studies, University of Oxford.
-        </div>
-    </section>
+        <main class="main-content">
+            <h2>About Me</h2>
+            <p>I am a cultural and intellectual historian specializing in modern European, Middle Eastern, and Jewish history, imperial history, and the global history of knowledge. My research examines how ideas, scholarly practices, and institutions migrate across borders and take shape in imperial and colonial contexts, bridging Central European and British history with global and transnational perspectives. I am currently a <strong>Martin Buber Fellow</strong> at the Hebrew University of Jerusalem[cite: 7].</p>
 
-    <section>
-        <h2>Education</h2>
-        <div class="cv-item">
-            <span class="year">2021</span>
-            <strong>PhD in History</strong>
-            The Hebrew University of Jerusalem.
-            <br><em>Dissertation: "A New Orient: German-Jewish Oriental Studies in Palestine/Israel, 1926–1963"</em>
-        </div>
-    </section>
+            <p>My first book, <em><strong>A New Orient: From German Scholarship to Middle Eastern Studies in Israel</strong></em> (Brandeis University Press, 2024), explores the migration of German academic traditions into new political and cultural settings[cite: 16]. The book, which evolved from my award-winning dissertation [cite: 7, 13], was honored with the <strong>Jordan Schnitzer First Book Publication Award</strong> from the Association for Jewish Studies[cite: 13]. A Hebrew edition of the work was published by Magnes Press in 2024 and received the <strong>Ish-Shalom Award</strong> from Yad Yitzhak Ben-Zvi[cite: 13, 17].</p>
+
+            <p>My current major research project investigates colonial encounters of knowledge in British Mandate Jerusalem. By examining museums, government departments, and learned societies, I analyze the spaces of exchange among European migrant scholars, British colonial officials, and local Arab intellectuals. This research forms the basis of my second monograph and a series of comparative studies linking Jerusalem to broader European imperial contexts. My work is supported by my experience in multilingual research across Hebrew, English, Arabic, and German[cite: 128].</p>
+        </main>
+    </div>
 </div>
 
 <footer class="footer">
-    &copy; 2026 Dr. Amit Levy. Built with GitHub Pages.
+    &copy; 2026 Dr. Amit Levy.
 </footer>
 
 </body>
