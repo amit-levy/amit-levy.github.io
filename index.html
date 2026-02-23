@@ -111,7 +111,6 @@
             position: relative;
             cursor: pointer;
             padding: 5px 0;
-            white-space: nowrap;
         }
 
         nav a::after {
@@ -281,6 +280,7 @@
             font-weight: 300;
         }
 
+        /* Subtle Social/Academic Link Styling */
         .sidebar-links {
             margin-top: 1rem;
             display: flex;
@@ -300,7 +300,9 @@
             transition: color 0.3s;
         }
 
-        .sidebar-links a:hover { color: var(--accent); }
+        .sidebar-links a:hover {
+            color: var(--accent);
+        }
 
         /* --- Book Section --- */
         .book-layout {
@@ -514,6 +516,7 @@
             display: flex;
             justify-content: center;
             gap: 25px;
+            flex-wrap: wrap;
         }
 
         .footer-socials a {
@@ -583,12 +586,11 @@
                 <a href="mailto:amit.levy@mail.huji.ac.il" style="color: var(--accent); font-weight: 700; text-decoration: none; font-size: 0.95rem; letter-spacing: 0.5px;">amit.levy@mail.huji.ac.il</a>
                 
                 <div class="sidebar-links">
-                    <a href="https://huji.academia.edu/AmitLevy" target="_blank">
-                        <span>A</span> Academia.edu
-                    </a>
+                    <a href="https://huji.academia.edu/AmitLevy" target="_blank">Academia.edu</a>
                     <a href="https://x.com/_amitlevy" target="_blank">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> @_amitlevy
                     </a>
+                    <a href="https://www.facebook.com/amit.levy2" target="_blank">Facebook</a>
                 </div>
             </div>
         </aside>
@@ -679,9 +681,9 @@
 
     <div class="pub-sub-nav">
         <a href="#cat-books">Books</a>
-        <a href="#cat-peer">Peer-Reviewed Articles</a>
+        <a href="#cat-peer">Journal Articles</a>
         <a href="#cat-volumes">Academic Volumes</a>
-        <a href="#cat-catalogs">Magazines & Blogs</a>
+        <a href="#cat-catalogs">Catalogs & Blogs</a>
         <a href="#cat-reviews">Reviews</a>
     </div>
 
@@ -715,7 +717,7 @@
                     Reviewed by Gil Eyal for Israeli Sociology 26, no. 1 (2025): 169–171 (Hebrew); Yoav Alon for Israel 34 (2025): 207–211 (Hebrew); Hanan Harif for The New East 64 (2025): 275–78 (Hebrew); Meir Hatina for Chidushim 27, no. 2 (2025): 247–52 (Hebrew).
                 </div>
                 <div class="pub-links">
-                    <a href="https://www.magnespress.co.il/book/A_New_Orient-8610" target="_blank" class="pub-link web">Publisher Page</a>
+                    <a href="https://www.magnespress.co.il/book/A_New_Orient-8610$0" target="_blank" class="pub-link web">Publisher Page</a>
                 </div>
             </div>
         </div>
@@ -857,7 +859,7 @@
 
     <!-- BLOGS & CATALOGS -->
     <div id="cat-catalogs" class="category">
-        <h3 class="category-title">Academic Articles in Catalogs, Magazines & Blogs</h3>
+        <h3 class="category-title">Catalogs, Magazines & Blogs</h3>
         <div class="pub-item">
             <div class="pub-year">2024</div>
             <div class="pub-content">
@@ -927,7 +929,8 @@
         <a href="mailto:amit.levy@mail.huji.ac.il" class="footer-email">amit.levy@mail.huji.ac.il</a>
         <div class="footer-socials">
             <a href="https://huji.academia.edu/AmitLevy" target="_blank">Academia.edu</a>
-            <a href="https://x.com/_amitlevy" target="_blank">X profile (@_amitlevy)</a>
+            <a href="https://x.com/_amitlevy" target="_blank">X (@_amitlevy)</a>
+            <a href="https://www.facebook.com/amit.levy2" target="_blank">Facebook</a>
         </div>
     </div>
     <p style="margin-top: 5rem; font-size: 0.8rem; opacity: 0.4;">&copy; 2026 Dr. Amit Levy. Hebrew University of Jerusalem.</p>
