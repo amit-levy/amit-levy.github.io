@@ -379,7 +379,7 @@
         .blurb cite { display: block; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; color: var(--accent); }
         .blurb cite span { font-weight: 400; color: var(--muted); text-transform: none; }
 
-        /* --- Publications --- */
+        /* --- Publications & Links --- */
         .pub-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 3rem; gap: 20px; }
         .search-container { width: 100%; max-width: 400px; }
         #searchBar { width: 100%; padding: 1rem 2rem; border: 1px solid #e2e8f0; border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 0.95rem; outline: none; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
@@ -387,11 +387,15 @@
 
         .pub-sub-nav {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
             margin-bottom: 4rem;
-            padding-bottom: 1.5rem;
+            padding: 1.5rem 0;
             border-bottom: 1px solid var(--sand);
+            position: sticky;
+            top: 70px;
+            background: var(--bg);
+            z-index: 10;
         }
         .pub-sub-nav a {
             text-decoration: none;
@@ -412,6 +416,29 @@
         .pub-year { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--muted); opacity: 0.5; }
         .pub-content h4 { font-size: 1.25rem; font-weight: 600; color: var(--primary); margin-bottom: 0.6rem; line-height: 1.35; }
         .pub-content p { color: var(--text); font-size: 1.05rem; line-height: 1.6; font-weight: 300; }
+        
+        /* Interactive Research Links */
+        .pub-links {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 20px;
+        }
+        .pub-link {
+            text-decoration: none;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.2s;
+        }
+        .pub-link:hover {
+            opacity: 0.7;
+        }
+        .pub-link.pdf::before { content: "📥"; }
+        .pub-link.web::before { content: "↗"; }
+
         .pub-award-tag { display: inline-block; margin-top: 12px; font-size: 0.75rem; background: #fef3c7; padding: 6px 14px; border-radius: 4px; color: #92400e; font-weight: 700; margin-right: 10px; text-transform: uppercase; letter-spacing: 1px; }
 
         .pub-review {
@@ -452,6 +479,7 @@
             .hero h1 { font-size: 4rem; }
             .pub-item { grid-template-columns: 1fr; gap: 1rem; }
             .pub-year { font-size: 1.2rem; opacity: 1; }
+            .pub-sub-nav { top: 60px; }
         }
     </style>
 </head>
@@ -576,7 +604,7 @@
     <div class="pub-header">
         <h2 style="font-family: 'Playfair Display', serif; font-size: 3.5rem;">Publications</h2>
         <div class="search-container">
-            <input type="text" id="searchBar" placeholder="Search research by title or keyword..." onkeyup="filterPublications()">
+            <input type="text" id="searchBar" placeholder="Search title or keyword..." onkeyup="filterPublications()">
         </div>
     </div>
 
@@ -584,7 +612,7 @@
         <a href="#cat-books">Books</a>
         <a href="#cat-peer">Peer-Reviewed Articles</a>
         <a href="#cat-volumes">Academic Volumes</a>
-        <a href="#cat-catalogs">Catalogs & Blogs</a>
+        <a href="#cat-catalogs">Magazines & Blogs</a>
         <a href="#cat-reviews">Reviews</a>
     </div>
 
@@ -596,8 +624,12 @@
             <div class="pub-content">
                 <h4>A New Orient: From German Scholarship to Middle Eastern Studies in Israel</h4>
                 <p>Waltham, MA: Brandeis University Press. (Revised and updated English edition).</p>
-                <span class="pub-award-tag">🏆 Jordan Schnitzer First Book Publication Award</span>
+                <span class="pub-award-tag">Jordan Schnitzer First Book Publication Award (AJS)</span>
                 <div class="pub-review">Reviewed by Sabine Mangold-Will for Revue d’histoire des sciences humaines 47 (2026): 241–44.</div>
+                <div class="pub-links">
+                    <a href="https://brandeisuniversitypress.com/title/a-new-orient-from-german-scholarship-to-middle-eastern-studies-in-israel/" target="_blank" class="pub-link web">Publisher Page</a>
+                    <a href="https://journals.openedition.org/rhsh/12132?lang=en" target="_blank" class="pub-link web">Full Review</a>
+                </div>
             </div>
         </div>
         <div class="pub-item">
@@ -605,11 +637,16 @@
             <div class="pub-content">
                 <h4>A New Orient: From German Orientalism to Israeli Mizrahanut</h4>
                 <p>Jerusalem: The Hebrew University Magnes Press (Hebrew).</p>
-                <span class="pub-award-tag">🏆 M. Ish-Shalom Award</span>
-                <span class="pub-award-tag">🏅 Honorable Mention, Am Ve’Olam Award</span>
-                <span class="pub-award-tag">🏅 Honorable Mention, Zalman Shazar Award</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span class="pub-award-tag">M. Ish-Shalom Award (Yad Yitzhak Ben-Zvi)</span>
+                    <span class="pub-award-tag">Honorable Mention, Am Ve’Olam Award</span>
+                    <span class="pub-award-tag">Honorable Mention, Zalman Shazar Award</span>
+                </div>
                 <div class="pub-review">
                     Reviewed by Gil Eyal for Israeli Sociology 26, no. 1 (2025): 169–171 (Hebrew); Yoav Alon for Israel 34 (2025): 207–211 (Hebrew); Hanan Harif for The New East 64 (2025): 275–78 (Hebrew); Meir Hatina for Chidushim 27, no. 2 (2025): 247–52 (Hebrew).
+                </div>
+                <div class="pub-links">
+                    <a href="https://www.magnespress.co.il/book/A_New_Orient-8610$0" target="_blank" class="pub-link web">Publisher Page</a>
                 </div>
             </div>
         </div>
@@ -623,7 +660,7 @@
         <div class="pub-item">
             <div class="pub-year">--</div>
             <div class="pub-content">
-                <h4>“’To Know the Learned Arab’: Students from Mount Scopus at the American University of Beirut, 1934–1940”</h4>
+                <h4>’To Know the Learned Arab’: Students from Mount Scopus at the American University of Beirut, 1934–1940</h4>
                 <p>Zion (Hebrew).</p>
             </div>
         </div>
@@ -635,13 +672,19 @@
             <div class="pub-content">
                 <h4>Whose Jewish History is it Anyway? Ideology and Practice in the Study of the Jewish Communities from the Islamic World in Nascent Israel</h4>
                 <p>(co-authored with Hanan Harif). Journal of Modern Jewish Studies 24, no. 2: 368–92.</p>
+                <div class="pub-links">
+                    <a href="https://www.tandfonline.com/doi/full/10.1080/14725886.2025.2462317" target="_blank" class="pub-link web">Read here (Open Access)</a>
+                </div>
             </div>
         </div>
         <div class="pub-item">
             <div class="pub-year">2025</div>
             <div class="pub-content">
-                <h4>“’Send my regards to those working on the al-Balādhurī manuscript’: The Study of Arabic and Islam in Interwar Jerusalem as Intellectual Common Ground”</h4>
+                <h4>’Send my regards to those working on the al-Balādhurī manuscript’: The Study of Arabic and Islam in Interwar Jerusalem as Intellectual Common Ground</h4>
                 <p>In Rachel Mairs et al. (eds.), Colonial Vocabularies: Teaching and Learning Arabic in Europe (Amsterdam: Amsterdam University Press), 159–86.</p>
+                <div class="pub-links">
+                    <a href="https://www.jstor.org/content/oa_chapter_edited/jj.24215737.11?seq=1" target="_blank" class="pub-link web">Read here (Open Access)</a>
+                </div>
             </div>
         </div>
         <div class="pub-item">
@@ -649,19 +692,22 @@
             <div class="pub-content">
                 <h4>Visualizing Farewell: A Jewish Soldier’s Return to Postwar Germany through Private Photography</h4>
                 <p>Jewish Culture and History 25, no. 2: 233–54.</p>
+                <div class="pub-links">
+                    <a href="https://www.tandfonline.com/doi/full/10.1080/1462169X.2024.2334169" target="_blank" class="pub-link web">Read here</a>
+                </div>
             </div>
         </div>
         <div class="pub-item">
             <div class="pub-year">2024</div>
             <div class="pub-content">
-                <h4>“‘A Complete, Multifaceted Discipline’: The Debate over the History of Jews in Muslim Lands and its Teaching”</h4>
+                <h4>‘A Complete, Multifaceted Discipline’: The Debate over the History of Jews in Muslim Lands and its Teaching</h4>
                 <p>(co-authored with Hanan Harif). In Uzi Rebhun and Yfaat Weiss (eds.), The History of the Hebrew University of Jerusalem: The Nation State and Higher Education (Jerusalem: Magnes Press), 687–718 (Hebrew).</p>
             </div>
         </div>
         <div class="pub-item">
             <div class="pub-year">2024</div>
             <div class="pub-content">
-                <h4>“Rediscovering the Goldziher Legacy in Jerusalem: Religion, Language, and History in the Making of a Hebrew University”</h4>
+                <h4>Rediscovering the Goldziher Legacy in Jerusalem: Religion, Language, and History in the Making of a Hebrew University</h4>
                 <p>In H.J. Becker et al. (eds.), Building Bridges: Ignaz Goldziher and His Correspondents (Leiden: Brill), 139–64.</p>
             </div>
         </div>
@@ -670,6 +716,9 @@
             <div class="pub-content">
                 <h4>Conflicting German Orientalism: Zionist Arabists and Arab Scholars, 1926–1938</h4>
                 <p>British Journal of Middle Eastern Studies 50, no. 5: 1112–31.</p>
+                <div class="pub-links">
+                    <a href="https://www.tandfonline.com/doi/full/10.1080/13530194.2022.2064819" target="_blank" class="pub-link web">Read here</a>
+                </div>
             </div>
         </div>
         <div class="pub-item">
@@ -684,20 +733,29 @@
             <div class="pub-content">
                 <h4>A Man of Contention: Martin Plessner (1900–1973) and His Encounters with the Orient</h4>
                 <p>Naharaim: Journal of German-Jewish Literature and Cultural History 10, no. 1: 79–100.</p>
+                <div class="pub-links">
+                    <a href="https://www.degruyter.com/document/doi/10.1515/naha-2016-0005/html" target="_blank" class="pub-link web">Read here</a>
+                </div>
             </div>
         </div>
         <div class="pub-item">
             <div class="pub-year">2016</div>
             <div class="pub-content">
-                <h4>“'The Sheik': Understanding American Orientalism through Visual and Narrative Differences in Three Decades of Discussion”</h4>
+                <h4>'The Sheik': Understanding American Orientalism through Visual and Narrative Differences in Three Decades of Discussion</h4>
                 <p>Slil: Online Journal for History, Film and Television 10: 39–57 (Hebrew).</p>
+                <div class="pub-links">
+                    <a href="https://slil.huji.ac.il/sites/default/files/slil/files/04-the.sheik__0.pdf" target="_blank" class="pub-link pdf">Download PDF</a>
+                </div>
             </div>
         </div>
         <div class="pub-item">
             <div class="pub-year">2015</div>
             <div class="pub-content">
-                <h4>“‘Ma’alesh, Nistader’: Arabic in the Folklore of the Palmach during the 1940s”</h4>
+                <h4>‘Ma’alesh, Nistader’: Arabic in the Folklore of the Palmach during the 1940s</h4>
                 <p>Hayo Haya: Student History Journal 11: 46–66 (Hebrew).</p>
+                <div class="pub-links">
+                    <a href="https://openscholar.huji.ac.il/sites/default/files/hayohaya/files/11-3-levy.pdf" target="_blank" class="pub-link pdf">Download PDF</a>
+                </div>
             </div>
         </div>
     </div>
@@ -708,21 +766,21 @@
         <div class="pub-item">
             <div class="pub-year">2020</div>
             <div class="pub-content">
-                <h4>“A Discipline in a Suitcase: The Scientific Nachlass of Josef Horovitz”</h4>
+                <h4>A Discipline in a Suitcase: The Scientific Nachlass of Josef Horovitz</h4>
                 <p>In Elisabeth Gallas et al. (eds.), Contested Heritage: Jewish Cultural Property after 1945 (Göttingen: Vandenhoeck & Ruprecht), 117–27.</p>
             </div>
         </div>
         <div class="pub-item">
             <div class="pub-year">2018</div>
             <div class="pub-content">
-                <h4>“Der wissenschaftliche Nachlass von Josef Horovitz”</h4>
-                <p>In: Deutsches Literaturarchiv Marbach, Archives of German–Jewish Scholarship: Wissenstransfer und Staatsbildung im Mandatsgebiet Palästina und in Israel.</p>
+                <h4>Der wissenschaftliche Nachlass von Josef Horovitz</h4>
+                <p>In: Deutsches Literaturarchiv Marbach, Archives of German–Jewish Scholarship (2018).</p>
             </div>
         </div>
         <div class="pub-item">
             <div class="pub-year">2016</div>
             <div class="pub-content">
-                <h4>“Israel. Orientalist Collections at the National Library of Israel”</h4>
+                <h4>Israel. Orientalist Collections at the National Library of Israel</h4>
                 <p>Geschichte der Germanistik 49/50: 147–48.</p>
             </div>
         </div>
@@ -730,7 +788,7 @@
 
     <!-- BLOGS & CATALOGS -->
     <div id="cat-catalogs" class="category">
-        <h3 class="category-title">Academic Articles in Catalogs, Magazines & Blogs</h3>
+        <h3 class="category-title">Catalogs, Magazines & Blogs</h3>
         <div class="pub-item">
             <div class="pub-year">2024</div>
             <div class="pub-content">
@@ -743,6 +801,9 @@
             <div class="pub-content">
                 <h4>German Heritage in Word Cards: The Concordance of Classical Arabic Poetry in Jerusalem</h4>
                 <p>Mimeo: Blog der Doktorandinnen und Doktoranden am Dubnow-Institut.</p>
+                <div class="pub-links">
+                    <a href="https://mimeo.dubnow.de/german-heritage-in-word-cards/" target="_blank" class="pub-link web">Blog Post</a>
+                </div>
             </div>
         </div>
         <div class="pub-item">
@@ -750,20 +811,26 @@
             <div class="pub-content">
                 <h4>Envisioning a Hebrew University: Ignác Goldziher on the University in Jerusalem</h4>
                 <p>Mimeo: Blog der Doktorandinnen und Doktoranden am Dubnow-Institut.</p>
+                <div class="pub-links">
+                    <a href="https://mimeo.dubnow.de/envisioning-a-hebrew-university/" target="_blank" class="pub-link web">Blog Post</a>
+                </div>
             </div>
         </div>
         <div class="pub-item">
             <div class="pub-year">2018</div>
             <div class="pub-content">
                 <h4>Elyakim Gotthold Weil</h4>
-                <p>Ad Acta: The Hebrew University, Jewish Scholars, and the Exile from Europe (Exhibition pamphlet; with Tom Eshed).</p>
+                <p>Ad Acta: The Hebrew University, Jewish Scholars, and the Exile from Europe (with Tom Eshed).</p>
             </div>
         </div>
         <div class="pub-item">
             <div class="pub-year">--</div>
             <div class="pub-content">
-                <h4>“‘There is a need for a native quality Arabic speaker’: Isaac Shamosh, the First Oriental Lecturer in the School of Oriental Studies, 1936–1937”</h4>
+                <h4>‘There is a need for a native quality Arabic speaker’: Isaac Shamosh, the First Oriental Lecturer in the School of Oriental Studies, 1936–1937</h4>
                 <p>The Historical Archive of the Hebrew University Blog.</p>
+                <div class="pub-links">
+                    <a href="https://rosenzweig.huji.ac.il/book/%E2%80%9Cthere-need-native-quality-arabic-speaker%E2%80%9D-isaac-shamosh-first-oriental-lecturer" target="_blank" class="pub-link web">Blog Post</a>
+                </div>
             </div>
         </div>
     </div>
@@ -791,30 +858,25 @@
 </footer>
 
 <script>
-    // Visibility & Scroll Reveal
+    // Robust Visibility logic
     const observerOptions = { threshold: 0.05, rootMargin: "0px 0px -50px 0px" };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, observerOptions);
-
     document.querySelectorAll('section').forEach(section => observer.observe(section));
 
-    // Nav Background and Progress Bar
+    // Nav Background & Progress
     const nav = document.getElementById('nav');
     const progressBar = document.getElementById('progress-bar');
-    
     window.addEventListener('scroll', () => {
-        // Toggle nav style
         if (window.scrollY > 80) nav.classList.add('scrolled');
         else nav.classList.remove('scrolled');
 
-        // Reading progress
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height) * 100;
         progressBar.style.width = scrolled + "%";
         
-        // Active nav state
         let current = "";
         document.querySelectorAll('section').forEach(s => {
             if (pageYOffset >= s.offsetTop - 300) current = s.getAttribute('id');
@@ -825,7 +887,7 @@
         });
     });
 
-    // Publications search logic
+    // Filtering logic
     function filterPublications() {
         let input = document.getElementById('searchBar').value.toLowerCase();
         let items = document.querySelectorAll('.pub-item');
@@ -841,15 +903,13 @@
                 item.style.transform = "translateY(15px)";
             }
         });
-        
-        // Hide empty categories
         document.querySelectorAll('.category').forEach(cat => {
             const visibleItems = cat.querySelectorAll('.pub-item[style*="display: grid"]');
             cat.style.display = (visibleItems.length === 0 && input !== "") ? "none" : "block";
         });
     }
 
-    // Smooth scroll for nav and sub-nav
+    // Smooth navigation
     document.querySelectorAll('nav a, .pub-sub-nav a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -866,7 +926,6 @@
         });
     });
 
-    // Initial check to prevent blank page
     window.onload = () => {
         document.querySelectorAll('section').forEach(s => {
             const rect = s.getBoundingClientRect();
