@@ -6,21 +6,20 @@
     
     <!-- Standard SEO -->
     <title>Dr. Amit Levy | Cultural & Intellectual Historian</title>
-    <meta name="description" content="Dr. Amit Levy is a Martin Buber Fellow at the Hebrew University of Jerusalem, specializing in the history of knowledge, migration, and Jewish and Middle Eastern Studies.">
-    <meta name="keywords" content="Amit Levy, History of Knowledge, Middle Eastern Studies, Jewish Studies, Israel Studies, A New Orient, Hebrew University, Historian">
+    <meta name="description" content="Dr. Amit Levy is a Martin Buber Fellow at the Hebrew University of Jerusalem, specializing in the history of knowledge, migration, and Middle Eastern Studies.">
+    <meta name="keywords" content="Amit Levy, History of Knowledge, Middle Eastern Studies, A New Orient, Hebrew University, Historian">
 
     <!-- Social Media Metadata (Open Graph / WhatsApp / Facebook) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Dr. Amit Levy | Cultural & Intellectual Historian">
     <meta property="og:description" content="Martin Buber Fellow at the Hebrew University of Jerusalem. Author of 'A New Orient'.">
-    <meta property="og:image" content="amit new.jpg">
-    <!-- Note: For best results on some platforms, use the full URL to your image once your site is live (e.g., https://yourusername.github.io/DSC_1864.jpg) -->
+    <meta property="og:image" content="DSC_1864.jpg">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Dr. Amit Levy | Cultural & Intellectual Historian">
     <meta name="twitter:description" content="Martin Buber Fellow at the Hebrew University of Jerusalem. Author of 'A New Orient'.">
-    <meta name="twitter:image" content="amit new.jpg">
+    <meta name="twitter:image" content="DSC_1864.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -112,6 +111,7 @@
             position: relative;
             cursor: pointer;
             padding: 5px 0;
+            white-space: nowrap;
         }
 
         nav a::after {
@@ -281,7 +281,6 @@
             font-weight: 300;
         }
 
-        /* Subtle Social/Academic Link Styling */
         .sidebar-links {
             margin-top: 1rem;
             display: flex;
@@ -301,9 +300,7 @@
             transition: color 0.3s;
         }
 
-        .sidebar-links a:hover {
-            color: var(--accent);
-        }
+        .sidebar-links a:hover { color: var(--accent); }
 
         /* --- Book Section --- */
         .book-layout {
@@ -430,15 +427,19 @@
         .pub-sub-nav {
             display: flex;
             gap: 25px;
-            flex-wrap: wrap;
-            margin-bottom: 4rem;
+            flex-wrap: nowrap; /* Forces categories to stay on one line on mobile */
+            overflow-x: auto; /* Enables horizontal scroll */
+            -webkit-overflow-scrolling: touch;
             padding: 1.5rem 0;
             border-bottom: 1px solid var(--sand);
             position: sticky;
             top: 70px;
             background: var(--bg);
             z-index: 10;
+            scrollbar-width: none; /* Hide scrollbar Firefox */
         }
+        .pub-sub-nav::-webkit-scrollbar { display: none; } /* Hide scrollbar Chrome/Safari */
+
         .pub-sub-nav a {
             text-decoration: none;
             color: var(--muted);
@@ -447,6 +448,7 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             transition: color 0.3s;
+            white-space: nowrap; /* Keeps category text from wrapping */
         }
         .pub-sub-nav a:hover { color: var(--accent); }
 
@@ -459,7 +461,6 @@
         .pub-content h4 { font-size: 1.25rem; font-weight: 600; color: var(--primary); margin-bottom: 0.6rem; line-height: 1.35; }
         .pub-content p { color: var(--text); font-size: 1.05rem; line-height: 1.6; font-weight: 300; }
         
-        /* Interactive Research Links */
         .pub-links {
             margin-top: 1.5rem;
             display: flex;
@@ -475,9 +476,7 @@
             gap: 6px;
             transition: opacity 0.2s;
         }
-        .pub-link:hover {
-            opacity: 0.7;
-        }
+        .pub-link:hover { opacity: 0.7; }
         .pub-link.pdf::before { content: "📥"; }
         .pub-link.web::before { content: "↗"; }
 
@@ -525,10 +524,7 @@
             letter-spacing: 1px;
             transition: color 0.3s;
         }
-
-        .footer-socials a:hover {
-            color: var(--accent);
-        }
+        .footer-socials a:hover { color: var(--accent); }
 
         /* --- Animations --- */
         @keyframes slideUpFade { to { opacity: 1; transform: translateY(0); } }
@@ -538,10 +534,12 @@
             .about-grid, .book-layout, .reception-container { grid-template-columns: 1fr; gap: 4rem; }
             .sidebar-card { position: static; width: 100%; }
             .book-layout { padding: 4rem 2rem; }
-            .hero h1 { font-size: 4rem; }
+            .hero h1 { font-size: 3.5rem; }
             .pub-item { grid-template-columns: 1fr; gap: 1rem; }
             .pub-year { font-size: 1.2rem; opacity: 1; }
-            .pub-sub-nav { top: 60px; }
+            .pub-sub-nav { top: 58px; padding-left: 20px; padding-right: 20px; margin-left: -20px; margin-right: -20px; width: calc(100% + 40px); }
+            .nav-container { gap: 15px; }
+            nav a { font-size: 0.65rem; letter-spacing: 1px; }
         }
     </style>
 </head>
@@ -681,9 +679,9 @@
 
     <div class="pub-sub-nav">
         <a href="#cat-books">Books</a>
-        <a href="#cat-peer">Journal Articles</a>
+        <a href="#cat-peer">Peer-Reviewed Articles</a>
         <a href="#cat-volumes">Academic Volumes</a>
-        <a href="#cat-catalogs">Catalogs & Blogs</a>
+        <a href="#cat-catalogs">Magazines & Blogs</a>
         <a href="#cat-reviews">Reviews</a>
     </div>
 
@@ -717,7 +715,7 @@
                     Reviewed by Gil Eyal for Israeli Sociology 26, no. 1 (2025): 169–171 (Hebrew); Yoav Alon for Israel 34 (2025): 207–211 (Hebrew); Hanan Harif for The New East 64 (2025): 275–78 (Hebrew); Meir Hatina for Chidushim 27, no. 2 (2025): 247–52 (Hebrew).
                 </div>
                 <div class="pub-links">
-                    <a href="https://www.magnespress.co.il/book/A_New_Orient-8610$0" target="_blank" class="pub-link web">Publisher Page</a>
+                    <a href="https://www.magnespress.co.il/book/A_New_Orient-8610" target="_blank" class="pub-link web">Publisher Page</a>
                 </div>
             </div>
         </div>
@@ -859,7 +857,7 @@
 
     <!-- BLOGS & CATALOGS -->
     <div id="cat-catalogs" class="category">
-        <h3 class="category-title">Catalogs, Magazines & Blogs</h3>
+        <h3 class="category-title">Academic Articles in Catalogs, Magazines & Blogs</h3>
         <div class="pub-item">
             <div class="pub-year">2024</div>
             <div class="pub-content">
@@ -884,7 +882,7 @@
             <div class="pub-year">--</div>
             <div class="pub-content">
                 <h4>Envisioning a Hebrew University: Ignác Goldziher on the University in Jerusalem</h4>
-                <p>Mimeo: Blog der Doktorandinnen und Doktoranden am Dubnow-Institut.</p>
+                <p>Mimeo: Blog der Doktorandinnen and Doktoranden am Dubnow-Institut.</p>
                 <div class="pub-links">
                     <a href="https://mimeo.dubnow.de/envisioning-a-hebrew-university/" target="_blank" class="pub-link web">Blog Post</a>
                 </div>
