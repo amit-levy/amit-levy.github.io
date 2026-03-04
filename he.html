@@ -20,7 +20,7 @@
             --text: #1e293b;
             --muted: #64748b;
             --sand: #f4f1ea;
-            --glass: rgba(253, 251, 247, 0.98); /* שקיפות נמוכה יותר למניעת כפילות */
+            --glass: rgba(253, 251, 247, 0.98);
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -52,24 +52,28 @@
             transition: width 0.1s ease;
         }
 
-        /* Navigation - תיקון הבעיה הויזואלית */
+        /* Navigation - Central Alignment like the English site */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
             padding: 1.5rem 0; transition: var(--transition);
             background: transparent;
+            display: flex;
+            justify-content: center;
         }
 
         nav.scrolled {
-            background: var(--bg); /* רקע מלא למניעת שקיפות כפולה */
-            backdrop-filter: blur(10px);
+            background: var(--glass);
             padding: 1rem 0;
             border-bottom: 1px solid rgba(27, 58, 75, 0.1);
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
         .nav-container {
-            max-width: 1200px; margin: 0 auto;
-            display: flex; justify-content: center; gap: 40px;
+            max-width: 1200px;
+            display: flex;
+            justify-content: center;
+            gap: 45px;
+            width: auto;
         }
 
         nav a {
@@ -77,6 +81,8 @@
             font-weight: 700; font-size: 0.95rem;
             position: relative; padding: 5px 0; cursor: pointer;
             transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         nav a::after {
@@ -87,12 +93,19 @@
         nav a:hover::after, nav a.active::after { width: 100%; }
         nav a.active { color: var(--accent); }
 
-        .lang-switch { position: fixed; top: 1.5rem; left: 2rem; z-index: 1100; }
+        /* Language Switch - Fixed to Top Left */
+        .lang-switch { 
+            position: fixed; 
+            top: 1.5rem; 
+            left: 2rem; 
+            z-index: 1100; 
+        }
         .lang-switch a {
             text-decoration: none; color: var(--primary);
             font-weight: 800; font-size: 0.85rem;
-            border: 1px solid var(--primary); padding: 4px 12px;
-            border-radius: 2px; transition: all 0.3s; background: var(--bg);
+            border: 1px solid var(--primary); padding: 6px 16px;
+            border-radius: 2px; transition: all 0.3s; background: white;
+            display: inline-block;
         }
         .lang-switch a:hover { background: var(--primary); color: white; }
 
@@ -105,11 +118,9 @@
             padding: 0 1.5rem;
         }
 
-        .hero h1 { font-size: clamp(3.5rem, 12vw, 7rem); font-weight: 900; color: var(--primary); line-height: 1; transform: translateY(40px); opacity: 0; animation: slideUpFade 1s forwards 0.2s; }
-        
-        /* תיקון כותרת משנה - ללא קו והגדלה */
+        .hero h1 { font-size: clamp(3.5rem, 12vw, 7.5rem); font-weight: 900; color: var(--primary); line-height: 1; transform: translateY(40px); opacity: 0; animation: slideUpFade 1s forwards 0.2s; }
         .hero p { 
-            font-size: 2.2rem; 
+            font-size: clamp(1.4rem, 5vw, 2.4rem); 
             color: var(--accent); 
             font-weight: 400; 
             margin-top: 15px;
@@ -163,7 +174,7 @@
         .blurb { margin-bottom: 3.5rem; padding-right: 25px; border-right: 4px solid var(--sand); }
         .blurb p { font-family: 'Rubik', sans-serif; font-size: 1.35rem; font-style: italic; color: #334155; line-height: 1.6; margin-bottom: 10px; }
         .blurb cite { font-weight: 800; color: var(--accent); font-size: 1.05rem; }
-        .blurb cite span { font-weight: 400; color: var(--muted); display: block; font-size: 0.9rem; margin-top: 4px; line-height: 1.4; }
+        .blurb cite span { font-weight: 400; color: var(--muted); display: block; font-size: 0.95rem; margin-top: 4px; }
 
         .media-card { background: var(--sand); padding: 1.5rem; margin-bottom: 1.5rem; display: flex; gap: 1.5rem; text-decoration: none; color: inherit; transition: var(--transition); }
         .media-card:hover { transform: translateX(-10px); background: #eeebe1; }
@@ -177,7 +188,7 @@
         .pub-sub-nav a { text-decoration: none; color: var(--muted); font-size: 0.95rem; font-weight: 800; transition: color 0.3s; white-space: nowrap; cursor: pointer; }
         .pub-sub-nav a:hover { color: var(--accent); }
 
-        .category-title { font-size: 1.8rem; color: var(--accent); margin: 6rem 0 2.5rem; display: flex; align-items: center; gap: 20px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; }
+        .category-title { font-size: 2rem; color: var(--accent); margin: 6rem 0 2.5rem; display: flex; align-items: center; gap: 20px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; }
         
         .pub-item { display: grid; grid-template-columns: 100px 1fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid #f1f5f9; transition: var(--transition); }
         .pub-item:hover { transform: translateX(-10px); }
@@ -190,6 +201,7 @@
 
         .pub-links { margin-top: 1rem; display: flex; gap: 15px; }
         .pub-link { text-decoration: none; color: var(--accent); font-size: 0.9rem; font-weight: 800; display: inline-flex; align-items: center; gap: 5px; }
+        .pub-link:hover { opacity: 0.7; }
         
         .pub-award-tag { display: inline-block; margin-top: 8px; font-size: 0.8rem; background: #fef3c7; padding: 4px 10px; border-radius: 4px; color: #92400e; font-weight: 800; margin-left: 5px; }
         .pub-review-box { margin-top: 12px; padding: 12px 18px; border-right: 4px solid var(--sand); background: rgba(0,0,0,0.02); font-size: 0.95rem; color: var(--muted); line-height: 1.5; }
@@ -198,13 +210,22 @@
         footer { background: var(--primary-dark); color: white; padding: 10rem 2rem; text-align: center; }
         footer h2 { font-size: 4rem; font-weight: 900; margin-bottom: 2rem; }
         .footer-email { color: var(--accent); font-size: 2.5rem; text-decoration: none; font-family: 'Rubik', sans-serif; border-bottom: 2px solid var(--accent); }
-        .footer-socials { margin-top: 3.5rem; display: flex; justify-content: center; gap: 40px; }
-        .footer-socials a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 1.15rem; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+        .footer-socials { margin-top: 3.5rem; display: center; justify-content: center; gap: 40px; display: flex; }
+        .footer-socials a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 1.15rem; font-weight: 600; display: flex; align-items: center; gap: 10px; transition: color 0.3s; }
+        .footer-socials a:hover { color: var(--accent); }
         .footer-socials svg { width: 22px; height: 22px; fill: currentColor; }
 
+        /* Mobile Fixes */
         @media (max-width: 950px) {
+            .nav-container { gap: 20px; overflow-x: auto; padding: 0 10px; justify-content: flex-start; scrollbar-width: none; width: 100%; }
+            .nav-container::-webkit-scrollbar { display: none; }
+            .lang-switch { top: 1.2rem; left: 1rem; }
             .about-grid, .book-layout, .reception-container, .pub-item { grid-template-columns: 1fr; }
-            .sidebar-card { position: static; }
+            .sidebar-card { position: static; border-right: none; border-top: 4px solid var(--primary); }
+            .pub-item { gap: 1rem; }
+            .pub-year { font-size: 1.4rem; opacity: 1; }
+            .hero h1 { font-size: 3.5rem; }
+            .hero p { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -225,7 +246,7 @@
     </div>
 </nav>
 
-<section id="hero" class="hero">
+<section id="hero" class="hero visible" style="opacity: 1; transform: translateY(0);">
     <div>
         <h1>ד"ר עמית לוי</h1>
         <p>היסטוריה של ידע והגירה</p>
@@ -306,15 +327,15 @@
             <h3>ביקורות נבחרות</h3>
             <div class="blurb">
                 <p>"מכל הספרים שנכתבו על תולדות המזרחנות הישראלית, ספרו החדש של עמית לוי הוא המעמיק ביותר מבחינת עושר החומרים הארכיוניים ויכולתו להתמקד ביחידים המגלמים בגופם תהליכים היסטוריים ומבנים חברתיים. הספר מעולה, והקריאה בו מאלפת ומרתקת."</p>
-                <cite>פרופ' גיל אייל <span>המחלקה לסוציולוגיה, אוניברסיטת קולומביה (בתוך "סוציולוגיה ישראלית")</span></cite>
+                <cite>פרופ' גיל אייל <span>אוניברסיטת קולומביה (בתוך "סוציולוגיה ישראלית")</span></cite>
             </div>
             <div class="blurb">
                 <p>"לוי מציג מחקר למדני, דקדקני, יסודי ומבוסס היטב. הוא אינו שופט את גיבוריו ההיסטוריים אלא מבקש להסבירם מתוך ההקשרים של רוח הזמן. מחקר מעמיק ומורכב המאיר פינה חשובה ומפתיעה בתולדות האקדמיה הישראלית."</p>
-                <cite>פרופ' יואב אלון <span>החוג להיסטוריה של המזרח התיכון ואפריקה, אוניברסיטת תל אביב (בתוך "ישראל")</span></cite>
+                <cite>פרופ' יואב אלון <span>אוניברסיטת תל אביב (בתוך "ישראל")</span></cite>
             </div>
             <div class="blurb">
                 <p>"המחקר מעלה תרומה חשובה וחדשנית לגוף המחקר על אודות התגבשות המזרחנות האקדמית ומערכי הזיקה שנטוו בינה ובין מוסדות ממשלתיים. לוי חושף בפנינו ביד בוטחת ונדיבה תמונה מרתקת ודינמית של פעילות המכון למדעי המזרח."</p>
-                <cite>פרופ' מאיר חטינה <span>החוג ללימודי האסלאם והמזרח התיכון, האוניברסיטה העברית בירושלים (בתוך "חידושים")</span></cite>
+                <cite>פרופ' מאיר חטינה <span>האוניברסיטה העברית בירושלים (בתוך "חידושים")</span></cite>
             </div>
         </div>
 
@@ -323,7 +344,7 @@
             
             <div style="margin-bottom: 2rem; background: #fff; padding: 10px; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
                 <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1858919235&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
-                <div style="font-size: 11px; color: var(--muted); padding: 5px 10px;">
+                <div style="font-size: 11px; color: var(--muted); padding: 5px 10px; font-family: Assistant, sans-serif;">
                     <a href="https://soundcloud.com/historia-il/299a" target="_blank" style="color: inherit; text-decoration: none;">היסטוריה גדולה, בקטנה: מזרחנות במנדט ובארץ עם ד"ר עמית לוי</a>
                 </div>
             </div>
@@ -332,7 +353,7 @@
                 <span class="media-icon">📺</span>
                 <div>
                     <h4>ערב לכבוד הספר במכון ליאו בק</h4>
-                    <p>יו"ר: יעל לוי. משתתפים: יפעת וייס, חגית לבסקי, מוסטפא כבהא ויוחנן פרידמן. (23.12.2024)</p>
+                    <p>בהשתתפות: יפעת וייס, חגית לבסקי, מוסטפא כבהא ויוחנן פרידמן. (23.12.2024)</p>
                 </div>
             </a>
 
@@ -350,7 +371,7 @@
 <section id="publications">
     <div class="pub-header">
         <h2>פרסומים</h2>
-        <input type="text" id="searchBar" placeholder="חיפוש בפרסומים..." onkeyup="filterPubs()">
+        <input type="text" id="searchBar" placeholder="חיפוש בפרסומים..." onkeyup="filterPubs()" style="border: none; background: var(--sand); padding: 15px 25px; border-radius: 40px; font-family: 'Assistant'; font-size: 1.1rem; width: 350px; outline: none;">
     </div>
 
     <div class="pub-sub-nav">
@@ -361,7 +382,6 @@
         <a data-target="cat-reviews">ביקורות</a>
     </div>
 
-    <!-- BOOKS -->
     <div id="cat-books" class="category">
         <h3 class="category-title">ספרים</h3>
         <div class="pub-item">
@@ -388,11 +408,13 @@
                 <h4>A New Orient: From German Scholarship to Middle Eastern Studies in Israel</h4>
                 <p>Waltham, MA: Brandeis University Press. (Revised and updated English edition).</p>
                 <span class="pub-award-tag">Jordan Schnitzer First Book Publication Award (AJS)</span>
+                <div class="pub-links">
+                    <a href="https://brandeisuniversitypress.com/title/a-new-orient-from-german-scholarship-to-middle-eastern-studies-in-israel/" target="_blank" class="pub-link">↗ Publisher Page</a>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- PEER-REVIEWED -->
     <div id="cat-peer" class="category">
         <h3 class="category-title">מאמרים ופרקים בכתבי עת וספרים שפיטים</h3>
         <div class="status-label">התקבלו</div>
@@ -422,6 +444,14 @@
         <div class="pub-item">
             <div class="pub-year">2024</div>
             <div class="pub-content ltr-content">
+                <h4>Visualizing Farewell: A Jewish Soldier’s Return to Postwar Germany through Private Photography</h4>
+                <p>Jewish Culture and History 25, no. 2: 233–54.</p>
+                <div class="pub-links"><a href="https://www.tandfonline.com/doi/full/10.1080/1462169X.2024.2334169" target="_blank" class="pub-link">↗ Read</a></div>
+            </div>
+        </div>
+        <div class="pub-item">
+            <div class="pub-year">2024</div>
+            <div class="pub-content ltr-content">
                 <h4>Rediscovering the Goldziher Legacy in Jerusalem: Religion, Language, and History in the Making of a Hebrew University</h4>
                 <p>In H.J. Becker et al. (eds.), Building Bridges: Ignaz Goldziher and His Correspondents (Leiden: Brill), 139–64.</p>
             </div>
@@ -431,38 +461,97 @@
             <div class="pub-content ltr-content">
                 <h4>Conflicting German Orientalism: Zionist Arabists and Arab Scholars, 1926–1938</h4>
                 <p>British Journal of Middle Eastern Studies 50, no. 5: 1112–31.</p>
+                <div class="pub-links"><a href="https://www.tandfonline.com/doi/full/10.1080/13530194.2022.2064819" target="_blank" class="pub-link">↗ Read</a></div>
+            </div>
+        </div>
+        <div class="pub-item">
+            <div class="pub-year">2018</div>
+            <div class="pub-content ltr-content">
+                <h4>The Archive as Storyteller: Refractions of German-Jewish Oriental Studies Migration in Personal Archives</h4>
+                <p>Jahrbuch des Dubnow-Instituts / Dubnow Institute Yearbook XVII: 425–46.</p>
+            </div>
+        </div>
+        <div class="pub-item">
+            <div class="pub-year">2016</div>
+            <div class="pub-content ltr-content">
+                <h4>A Man of Contention: Martin Plessner (1900–1973) and His Encounters with the Orient</h4>
+                <div class="pub-links"><a href="https://www.degruyter.com/document/doi/10.1515/naha-2016-0005/html" target="_blank" class="pub-link">↗ Read</a></div>
+            </div>
+        </div>
+        <div class="pub-item">
+            <div class="pub-year">2016</div>
+            <div class="pub-content">
+                <h4>'השייח': ניגודים ויזואליים ונרטיביים בדרך להבנת האוריינטליזם האמריקני בשלושה עשורי ניתוח</h4>
+                <p>סליל: כתב עת להיסטוריה, קולנוע וטלוויזיה 10 (2016), עמ' 39-57.</p>
+                <div class="pub-links"><a href="https://slil.huji.ac.il/sites/default/files/slil/files/04-the.sheik__0.pdf" target="_blank" class="pub-link">📥 Download PDF</a></div>
+            </div>
+        </div>
+        <div class="pub-item">
+            <div class="pub-year">2015</div>
+            <div class="pub-content">
+                <h4>׳מַעלֶש, נסתדר׳: ערבית בפולקלור הפלמ”ח של שנות הארבעים</h4>
+                <p>היה היה: במה צעירה להיסטוריה 11 (2015), עמ' 46-66.</p>
+                <div class="pub-links"><a href="https://openscholar.huji.ac.il/sites/default/files/hayohaya/files/11-3-levy.pdf" target="_blank" class="pub-link">📥 Download PDF</a></div>
             </div>
         </div>
     </div>
 
-    <!-- OTHER ACADEMIC -->
     <div id="cat-volumes" class="category">
         <h3 class="category-title">פרסומים אקדמיים אחרים</h3>
         <div class="pub-item">
             <div class="pub-year">2020</div>
             <div class="pub-content ltr-content">
                 <h4>A Discipline in a Suitcase: The Scientific Nachlass of Josef Horovitz</h4>
-                <p>In Elisabeth Gallas et al. (eds.), Contested Heritage (Göttingen: Vandenhoeck & Ruprecht), 117–27.</p>
+                <p>In Elisabeth Gallas et al. (eds.), Contested Heritage (Vandenhoeck & Ruprecht), 117–27.</p>
+            </div>
+        </div>
+        <div class="pub-item">
+            <div class="pub-year">2016</div>
+            <div class="pub-content ltr-content">
+                <h4>Israel. Orientalist Collections at the National Library of Israel</h4>
+                <p>Geschichte der Germanistik 49/50: 147–48.</p>
+            </div>
+        </div>
+        <div class="pub-item">
+            <div class="pub-year">2018</div>
+            <div class="pub-content ltr-content">
+                <h4>Der wissenschaftliche Nachlass von Josef Horovitz</h4>
+                <p>In: Deutsches Literaturarchiv Marbach (2018).</p>
             </div>
         </div>
     </div>
 
-    <!-- MAGAZINES & BLOGS -->
     <div id="cat-catalogs" class="category">
         <h3 class="category-title">מגזינים ובלוגים</h3>
+        <div class="pub-item">
+            <div class="pub-year">2024</div>
+            <div class="pub-content ltr-content">
+                <h4>Den Orient erforschen: Kontakte between jüdischen and arabischen Gelehrten in der Mandatszeit</h4>
+            </div>
+        </div>
         <div class="pub-item">
             <div class="pub-year">2018</div>
             <div class="pub-content">
                 <h4>׳דרוש בעל סגנון טוב בערבית והיא שפת אמו׳: יצחק שמוש, המורה המזרחי הראשון במכון למדעי המזרח</h4>
-                <p>הספרנים: בלוג הספרייה הלאומית, 26 ביוני 2018.</p>
-                <div class="pub-links">
-                    <a href="https://rosenzweig.huji.ac.il/book/%E2%80%9Cthere-need-native-quality-arabic-speaker%E2%80%9D-isaac-shamosh-first-oriental-lecturer" target="_blank" class="pub-link">↗ Blog Post</a>
-                </div>
+                <div class="pub-links"><a href="https://rosenzweig.huji.ac.il/book/%E2%80%9Cthere-need-native-quality-arabic-speaker%E2%80%9D-isaac-shamosh-first-oriental-lecturer" target="_blank" class="pub-link">↗ Blog Post</a></div>
+            </div>
+        </div>
+        <div class="pub-item">
+            <div class="pub-year">--</div>
+            <div class="pub-content ltr-content">
+                <h4>German Heritage in Word Cards: The Concordance of Classical Arabic Poetry in Jerusalem</h4>
+                <div class="pub-links"><a href="https://mimeo.dubnow.de/german-heritage-in-word-cards/" target="_blank" class="pub-link">↗ Blog Post</a></div>
+            </div>
+        </div>
+        <div class="pub-item">
+            <div class="pub-year">--</div>
+            <div class="pub-content ltr-content">
+                <h4>Envisioning a Hebrew University: Ignác Goldziher on the University in Jerusalem</h4>
+                <div class="pub-links"><a href="https://mimeo.dubnow.de/envisioning-a-hebrew-university/" target="_blank" class="pub-link">↗ Blog Post</a></div>
             </div>
         </div>
     </div>
 
-    <!-- REVIEWS -->
     <div id="cat-reviews" class="category">
         <h3 class="category-title">ביקורות</h3>
         <div class="pub-item">
@@ -480,33 +569,33 @@
     <a href="mailto:amit.levy@mail.huji.ac.il" class="footer-email">amit.levy@mail.huji.ac.il</a>
     <div class="footer-socials">
         <a href="https://huji.academia.edu/AmitLevy" target="_blank">Academia.edu</a>
-        <a href="https://x.com/_amitlevy" target="_blank">
-            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
+        <a href="https://x.com/_amitlevy" target="_blank"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://www.facebook.com/amit.levy2" target="_blank"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
     </div>
     <p style="margin-top: 5rem; opacity: 0.5; font-size: 0.95rem;">&copy; 2026 ד"ר עמית לוי. האוניברסיטה העברית בירושלים.</p>
 </footer>
 
 <script>
-    // Visibility
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.05 });
     document.querySelectorAll('section').forEach(s => observer.observe(s));
 
-    // Nav & Scroll
     window.addEventListener('scroll', () => {
         const winScroll = window.scrollY;
         const nav = document.getElementById('nav');
+        const progressBar = document.getElementById('progress-bar');
+        
         if (winScroll > 60) nav.classList.add('scrolled');
         else nav.classList.remove('scrolled');
 
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        document.getElementById('progress-bar').style.width = (winScroll / height) * 100 + "%";
+        if(progressBar) progressBar.style.width = (winScroll / height) * 100 + "%";
 
         let current = "";
         document.querySelectorAll('section').forEach(s => {
-            if (winScroll >= s.offsetTop - 300) current = s.getAttribute('id');
+            const sectionTop = s.offsetTop;
+            if (winScroll >= sectionTop - 350) current = s.getAttribute('id');
         });
         document.querySelectorAll('nav a').forEach(a => {
             a.classList.remove('active');
@@ -514,17 +603,18 @@
         });
     });
 
-    // Nav Click Logic - תיקון הקישורים
     document.querySelectorAll('nav a, .pub-sub-nav a').forEach(a => {
         a.addEventListener('click', (e) => {
             e.preventDefault();
             const targetId = a.getAttribute('data-target');
-            const target = document.getElementById(targetId);
-            if(target) {
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+            if (targetId) {
+                const target = document.getElementById(targetId);
+                if(target) {
+                    const headerOffset = 100;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
             }
         });
     });
@@ -535,8 +625,7 @@
             item.style.display = item.innerText.toLowerCase().includes(val) ? "grid" : "none";
         });
         document.querySelectorAll('.category').forEach(cat => {
-            const hasVisible = Array.from(cat.querySelectorAll('.pub-item')).some(i => i.style.display !== "none");
-            cat.style.display = hasVisible ? "block" : "none";
+            cat.style.display = Array.from(cat.querySelectorAll('.pub-item')).some(i => i.style.display !== "none") ? "block" : "none";
         });
     }
 
