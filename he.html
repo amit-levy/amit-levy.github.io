@@ -113,6 +113,479 @@
         }
 
         .hero h1 { font-size: clamp(3.5rem, 12vw, 7rem); font-weight: 900; color: var(--primary); line-height: 1; transform: translateY(40px); opacity: 0; animation: slideUpFade 1.2s forwards 0.2s; }
+        
+        /* עדכון: הגדלת הטקסט והסרת הקו המפריד */
+        .hero p { 
+            font-size: 2rem; 
+            color: var(--accent); 
+            font-weight: 400; 
+            margin-top: 15px; 
+            transform: translateY(40px); 
+            opacity: 0; 
+            animation: slideUpFade 1.2s forwards 0.5s; 
+        }
+
+        section { padding: 10rem 1.5rem; max-width: 1150px; margin: 0 auto; opacity: 0; transform: translateY(40px); transition: var(--transition); }
+        section.visible { opacity: 1; transform: translateY(0); }
+
+        .about-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 6rem; align-items: flex-start; }
+        .sidebar-card { background: var(--sand); padding: 4rem 2.5rem; border-radius: 2px; position: sticky; top: 150px; border-right: 4px solid var(--primary); }
+        .profile-img { width: 100%; filter: grayscale(100%); transition: var(--transition); border: 1px solid rgba(0,0,0,0.05); margin-bottom: 2rem; }
+        .sidebar-card:hover .profile-img { filter: grayscale(0%); transform: scale(1.02); }
+
+        .tag { font-family: 'Amatic SC', cursive; font-size: 1.2rem; background: var(--primary); color: white; padding: 4px 12px; margin: 0 0 8px 8px; display: inline-block; }
+
+        .content-body h2 { font-size: 4rem; margin-bottom: 2.5rem; color: var(--primary-dark); font-weight: 900; }
+        .content-body p { font-size: 1.45rem; margin-bottom: 2rem; text-align: justify; font-weight: 400; color: var(--text); }
+
+        .sidebar-links { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 15px; }
+        .sidebar-links a { color: var(--primary); text-decoration: none; font-size: 1.05rem; font-weight: 700; display: flex; align-items: center; gap: 12px; transition: var(--transition); }
+        .sidebar-links a:hover { color: var(--accent); transform: translateX(-8px); }
+        .sidebar-links svg { width: 18px; height: 18px; fill: currentColor; }
+
+        .book-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; background: var(--primary); color: white; padding: 7rem 6rem; border-radius: 4px; position: relative; }
+        .book-info h2 { font-size: 4.2rem; line-height: 1; margin-bottom: 0.8rem; font-weight: 900; color: var(--accent); }
+        .book-description { font-size: 1.25rem; line-height: 1.8; font-weight: 300; text-align: justify; margin-bottom: 2.5rem; color: rgba(255, 255, 255, 0.95); }
+        .btn-gold { display: inline-block; background: var(--accent); color: var(--primary-dark); padding: 1.2rem 3rem; text-decoration: none; font-weight: 800; transition: var(--transition); font-size: 1.1rem; border: 2px solid var(--accent); cursor: pointer; }
+        .btn-gold:hover { background: transparent; color: var(--accent); transform: translateY(-5px); }
+
+        .book-visual { display: flex; flex-direction: column; align-items: center; justify-content: center; perspective: 1000px; }
+        .book-cover-frame {
+            width: 100%; max-width: 380px;
+            box-shadow: -40px 40px 80px rgba(0,0,0,0.5);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+            cursor: pointer; transform-style: preserve-3d;
+        }
+        .book-cover-frame:hover { transform: rotateY(15deg) scale(1.08); box-shadow: -60px 60px 100px rgba(0,0,0,0.6); }
+        .book-cover-frame img { width: 100%; display: block; border-right: 15px solid rgba(0,0,0,0.2); }
+
+        .reception-container { margin-top: 6rem; display: grid; grid-template-columns: 1.5fr 1fr; gap: 5rem; }
+        .praise h3, .media-links h3 { font-size: 2.6rem; color: var(--primary); margin-bottom: 3rem; border-bottom: 2px solid var(--accent); display: inline-block; }
+        .blurb { margin-bottom: 3.5rem; padding-right: 25px; border-right: 4px solid var(--sand); }
+        .blurb p { font-family: 'Rubik', sans-serif; font-size: 1.35rem; font-style: italic; color: #334155; line-height: 1.6; margin-bottom: 10px; }
+        .blurb cite { font-weight: 800; color: var(--accent); font-size: 1.05rem; }
+        .blurb cite span { font-weight: 400; color: var(--muted); display: block; font-size: 0.95rem; margin-top: 4px; }
+
+        .media-card { background: var(--sand); padding: 1.5rem; margin-bottom: 1.5rem; display: flex; gap: 1.5rem; text-decoration: none; color: inherit; transition: var(--transition); }
+        .media-card:hover { transform: translateX(-10px); background: #eeebe1; }
+
+        .pub-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4rem; border-bottom: 3px solid var(--primary); padding-bottom: 2rem; flex-wrap: wrap; }
+        .pub-item { display: grid; grid-template-columns: 100px 1fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid #f1f5f9; transition: var(--transition); }
+        .pub-item:hover { transform: translateX(-10px); }
+        .pub-year { font-size: 1.8rem; font-weight: 900; color: var(--accent); opacity: 0.7; font-family: 'Rubik'; }
+
+        footer { background: var(--primary-dark); color: white; padding: 10rem 2rem; text-align: center; }
+        footer h2 { font-size: 4rem; font-weight: 900; margin-bottom: 2rem; }
+        .footer-email { color: var(--accent); font-size: 2.5rem; text-decoration: none; font-family: 'Rubik', sans-serif; border-bottom: 2px solid var(--accent); }
+        .footer-socials { margin-top: 3.5rem; display: center; justify-content: center; gap: 40px; display: flex; }
+        .footer-socials a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 1.15rem; font-weight: 600; display: flex; align-items: center; gap: 10px; transition: color 0.3s; }
+        .footer-socials a:hover { color: var(--accent); }
+        .footer-socials svg { width: 22px; height: 22px; fill: currentColor; }
+
+        @media (max-width: 950px) {
+            .about-grid, .book-layout, .reception-container, .pub-item { grid-template-columns: 1fr; }
+            .sidebar-card { position: static; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<div class="lang-switch">
+    <a href="index.html">English</a>
+</div>
+
+<nav id="nav">
+    <div class="nav-container">
+        <a data-target="hero" class="active">בית</a>
+        <a data-target="about">אודות</a>
+        <a data-target="book-section">מזרח חדש</a>
+        <a data-target="publications">פרסומים</a>
+    </div>
+</nav>
+
+<section id="hero" class="hero visible" style="opacity: 1; transform: translateY(0);">
+    <div>
+        <h1>ד"ר עמית לוי</h1>
+        <p>היסטוריה של ידע והגירה</p>
+    </div>
+    <div class="scroll-indicator">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+</section>
+
+<section id="about">
+    <div class="about-grid">
+        <aside class="sidebar-card">
+            <img src="DSC_1864.jpg" alt="ד"ר עמית לוי" class="profile-img" onerror="this.src='https://via.placeholder.com/400x500?text=Amit+Levy'">
+            <div class="interests-tag-cloud">
+                <span class="tag">היסטוריה של ידע</span>
+                <span class="tag">אירופה המודרנית</span>
+                <span class="tag">היסטוריה אימפריאלית</span>
+                <span class="tag">לימודי המזרח התיכון</span>
+                <span class="tag">היסטוריה יהודית</span>
+                <span class="tag">לימודי ישראל</span>
+            </div>
+            <div class="sidebar-links">
+                <a href="mailto:amit.levy@mail.huji.ac.il">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    amit.levy@mail.huji.ac.il
+                </a>
+                <a href="https://huji.academia.edu/AmitLevy" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L1 12h3v9h6v-6h4v6h6v-9h3L12 2z"/></svg>
+                    Academia.edu
+                </a>
+                <a href="https://x.com/_amitlevy" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    Twitter / X
+                </a>
+                <a href="https://www.facebook.com/amit.levy2" target="_blank">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    Facebook
+                </a>
+            </div>
+        </aside>
+        
+        <main class="content-body">
+            <h2>אודות</h2>
+            <p>אני היסטוריון של ידע ותרבות המתמחה בהיסטוריה של אירופה המודרנית, המזרח התיכון והעם היהודי, היסטוריה אימפריאלית והיסטוריה גלובלית של ידע. מחקרי בוחן כיצד רעיונות, פרקטיקות מחקריות ומוסדות נודדים מעבר לגבולות ומתעצבים בהקשרים אימפריאליים וקולוניאליים, תוך גישור בין ההיסטוריה של מרכז אירופה ובריטניה לבין פרספקטיבות גלובליות וטרנס-לאומיות. כיום אני עמית בתוכנית עמיתי מרטין בובר באוניברסיטה העברית בירושלים.</p>
+
+            <p>ספרי <strong>מזרח חדש: מאוריינטליזם גרמני למזרחנות ישראלית</strong> (הוצאת מאגנס, 2024), עוקב אחר הגירת המסורות האקדמיות הגרמניות לירושלים וכינונם של לימודי האסלאם, הערבית והמזרח התיכון בישראל. הספר זכה בפרס איש-שלום מטעם יד יצחק בן-צבי ומהדורתו האנגלית זכתה בפרס ג׳ורדן שניצר לספרי ביכורים מטעם ה-AJS.</p>
+
+            <p>פרויקט המחקר הנוכחי שלי עוסק במפגשים קולוניאליים של ידע בירושלים המנדטורית, תוך ניתוח מרחבי החליפין בין מלומדים מהגרים (יהודים ונוצרים) מאירופה, פקידי ממשל בריטים ואינטלקטואלים ערבים מקומיים. המחקר ישמש בסיס לספרי השני, שיחבר בין ירושלים להקשרים אימפריאליים רחבים יותר, תוך הישענות על מקורות בעברית, אנגלית, ערבית וגרמנית.</p>
+        </main>
+    </div>
+</section>
+
+<section id="book-section" style="max-width: 1250px;">
+    <div class="book-layout">
+        <div class="book-info">
+            <span class="award-banner">זוכה פרס איש-שלום לשנת תשפ"ה</span>
+            <h2>מזרח חדש</h2>
+            <h3 style="font-weight: 400; font-size: 1.8rem; margin-bottom: 2rem; opacity: 0.9;">מאוריינטליזם גרמני למזרחנות ישראלית</h3>
+            
+            <div class="book-description">
+                <p><strong>מזרח חדש</strong> הוא מחקר היסטורי מעמיק על תולדות המזרחנות הציונית והישראלית. שורשיו של תחום הידע הזה – חקר הערבית, האסלאם וההיסטוריה של המזרח התיכון – באוניברסיטאות הגרמניות של המאה התשע-עשרה וראשית המאה העשרים: רוב מייסדיו בארץ היו יהודים-גרמנים שצמחו במסורת המזרחנית של מרכז אירופה, והם שהביאו את תחום הידע לאוניברסיטה העברית בירושלים, וממנה למערכת האקדמית כולה.</p>
+                <p style="margin-top:15px;">באמצעות ניתוח של תיעוד ארכיוני עשיר בגרמנית, בערבית, באנגלית ובעברית משרטט הספר את התהליך המורכב של הגירת הידע המזרחני מגרמניה לארץ תוך התמקדות בשאלה מה קרה למחקר, ולחוקרים עצמם, כאשר המפגש עם המזרח הפך מטקסטואלי-פילולוגי למפגש פיזי ממשי, רווי סתירות ומתחים, שברקע שלו הסכסוך היהודי-הערבי המתעצם.</p>
+            </div>
+
+            <a href="https://www.magnespress.co.il/book/A_New_Orient-8610" target="_blank" class="btn-gold">לרכישה בהוצאת מאגנס</a>
+        </div>
+        
+        <div class="book-visual">
+            <div class="book-cover-frame">
+                <img src="https://www.magnespress.co.il/api/magnes/book/8610/cover?size=big" alt="עטיפת הספר מזרח חדש">
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: rgba(255,255,255,0.6);">ציונים לשבח: פרס שזר (תשפ"ד) ופרס עם ועולם (תשפ"ה)</p>
+        </div>
+    </div>
+
+    <div class="reception-container">
+        <div class="praise">
+            <h3>ביקורות נבחרות</h3>
+            <div class="blurb">
+                <p>"מכל הספרים שנכתבו על תולדות המזרחנות הישראלית, ספרו החדש של עמית לוי הוא המעמיק ביותר מבחינת עושר החומרים הארכיוניים ויכולתו להתמקד ביחידים המגלמים בגופם תהליכים היסטוריים ומבנים חברתיים. הספר מעולה, והקריאה בו מאלפת ומרתקת."</p>
+                <cite>פרופ' גיל אייל <span>המחלקה לסוציולוגיה, אוניברסיטת קולומביה (בתוך "סוציולוגיה ישראלית")</span></cite>
+            </div>
+            <div class="blurb">
+                <p>"לוי מציג מחקר למדני, דקדקני, יסודי ומבוסס היטב. הוא אינו שופט את גיבוריו ההיסטוריים אלא מבקש להסבירם מתוך ההקשרים של רוח הזמן. מחקר מעמיק ומורכב המאיר פינה חשובה ומפתיעה בתולדות האקדמיה הישראלית."</p>
+                <cite>פרופ' יואב אלון <span>החוג להיסטוריה של המזרח התיכון ואפריקה, אוניברסיטת תל אביב (בתוך "ישראל")</span></cite>
+            </div>
+            <div class="blurb">
+                <p>"המחקר מעלה תרומה חשובה וחדשנית לגוף המחקר על אודות התגבשות המזרחנות האקדמית ומערכי הזיקה שנטוו בינה ובין מוסדות ממשלתיים. לוי חושף בפנינו ביד בוטחת ונדיבה תמונה מרתקת ודינמית של פעילות המכון למדעי המזרח."</p>
+                <cite>פרופ' מאיר חטינה <span>החוג ללימודי האסלאם והמזרח התיכון, האוניברסיטה העברית בירושלים (בתוך "חידושים")</span></cite>
+            </div>
+        </div>
+
+        <div class="media-links">
+            <h3>ראיונות, הרצאות וביקורות</h3>
+            
+            <div style="margin-bottom: 2rem; background: #fff; padding: 10px; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1858919235&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                <div style="font-size: 11px; color: var(--muted); padding: 5px 10px; font-family: Assistant, sans-serif;">
+                    <a href="https://soundcloud.com/historia-il/299a" target="_blank" style="color: inherit; text-decoration: none;">היסטוריה גדולה, בקטנה: מזרחנות במנדט ובארץ עם ד"ר עמית לוי</a>
+                </div>
+            </div>
+
+            <a href="https://www.youtube.com/watch?v=xie7ruLUyko" target="_blank" class="media-card">
+                <span class="media-icon">📺</span>
+                <div>
+                    <h4>ערב לכבוד הספר במכון ליאו בק</h4>
+                    <p>יו"ר: יעל לוי. משתתפים: יפעת וייס, חגית לבסקי, מוסטפא כבהא ויוחנן פרידמן. (23.12.2024)</p>
+                </div>
+            </a>
+
+            <a href="https://www.magnespress.co.il/book/A_New_Orient-8610" target="_blank" class="media-card" style="border: 1px solid var(--accent);">
+                <span class="media-icon">📖</span>
+                <div>
+                    <h4>ריכוז הביקורות המלא</h4>
+                    <p>כל הקישורים לביקורות האקדמיות והראיונות באתר הוצאת מאגנס.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="publications">
+    <div class="pub-header">
+        <h2>פרסומים</h2>
+        <input type="text" id="searchBar" placeholder="חיפוש בפרסומים..." onkeyup="filterPubs()">
+    </div>
+
+    <div class="pub-sub-nav">
+        <a data-target="cat-books">ספרים</a>
+        <a data-target="cat-peer">מאמרים שפיטים</a>
+        <a data-target="cat-volumes">פרסומים אקדמיים אחרים</a>
+        <a data-target="cat-catalogs">מגזינים ובלוגים</a>
+        <a data-target="cat-reviews">ביקורות</a>
+    </div>
+
+    <div id="cat-books" class="category">
+        <h3 class="category-title">ספרים</h3>
+        <div class="pub-item">
+            <div class="pub-year">2024</div>
+            <div class="pub-content">
+                <h4>מזרח חדש: מאוריינטליזם גרמני למזרחנות ישראלית</h4>
+                <p>ירושלים: הוצאת מאגנס (עברית).</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span class="pub-award-tag">פרס מרדכי איש שלום (יד יצחק בן-צבי)</span>
+                    <span class="pub-award-tag">ציון לשבח, פרס עם ועולם</span>
+                    <span class="pub-award-tag">ציון לשבח, פרס זלמן שזר</span>
+                </div>
+                <div class="pub-review-box">
+                    <strong>ביקורות:</strong> גיל אייל עבור סוציולוגיה ישראלית 26, 1 (2025), עמ׳ 169–171; יואב אלון עבור ישראל 34 (2025), עמ׳ 207–211; חנן חריף עבור המזרח החדש 64 (2025), עמ׳ 275–278; מאיר חטינה עבור חידושים 27, 2 (2025), עמ׳ 247–252.
+                </div>
+                <div class="pub-links">
+                    <a href="https://www.magnespress.co.il/book/A_New_Orient-8610" target="_blank" class="pub-link">↗ עמוד הספר במאגנס</a>
+                </div>
+            </div>
+        </div>
+        <div class="pub-item">
+            <div class="pub-year">2024</div>
+            <div class="pub-content ltr-content" dir="ltr">
+                <h4>A New Orient: From German Scholarship to Middle Eastern Studies in Israel</h4>
+                <p>Waltham, MA: Brandeis University Press. (Revised and updated English edition).</p>
+                <span class="pub-award-tag">Jordan Schnitzer First Book Publication Award (AJS)</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="cat-peer" class="category">
+        <h3 class="category-title">מאמרים ופרקים בכתבי עת וספרים שפיטים</h3>
+        <div class="status-label">התקבלו</div>
+        <div class="pub-item">
+            <div class="pub-year">--</div>
+            <div class="pub-content">
+                <h4>׳להכיר את המלומד הערבי׳: סטודנטים מהר הצופים באוניברסיטה האמריקאית בביירות, 1934–1940</h4>
+                <p>ציון.</p>
+            </div>
+        </div>
+        <div class="status-label" style="margin-top: 3rem;">פורסמו</div>
+        <div class="pub-item">
+            <div class="pub-year">2025</div>
+            <div class="pub-content ltr-content" dir="ltr">
+                <h4>Whose Jewish History is it Anyway? Ideology and Practice in the Study of the Jewish Communities from the Islamic World in Nascent Israel</h4>
+                <p>(co-authored with Hanan Harif). Journal of Modern Jewish Studies 24, no. 2: 368–92.</p>
+            </div>
+        </div>
+        <div class="pub-item">
+            <div class="pub-year">2024</div>
+            <div class="pub-content">
+                <h4>׳דיסציפלינה שלמה, רבת פנים׳: הפולמוס על לימוד ההיסטוריה של יהודי ארצות האסלאם במכונים למדעי היהדות ולמדעי המזרח</h4>
+                <p>בתוך יפעת וייס ועוזי רבהון (עורכים), תולדות האוניברסיטה העברית בירושלים (מאגנס), עמ׳ 687–718.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cat-volumes" class="category">
+        <h3 class="category-title">פרסומים אקדמיים אחרים</h3>
+        <div class="pub-item">
+            <div class="pub-year">2020</div>
+            <div class="pub-content ltr-content" dir="ltr">
+                <h4>A Discipline in a Suitcase: The Scientific Nachlass of Josef Horovitz</h4>
+                <p>In Elisabeth Gallas et al. (eds.), Contested Heritage (Göttingen: Vandenhoeck & Ruprecht), 117–27.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cat-catalogs" class="category">
+        <h3 class="category-title">מגזינים ובלוגים</h3>
+        <div class="pub-item">
+            <div class="pub-year">2018</div>
+            <div class="pub-content">
+                <h4>׳דרוש בעל סגנון טוב בערבית והיא שפת אמו׳: יצחק שמוש, המורה המזרחי הראשון במכון למדעי המזרח</h4>
+                <p>הספרנים: בלוג הספרייה הלאומית, 26 ביוני 2018.</p>
+                <div class="pub-links">
+                    <a href="https://rosenzweig.huji.ac.il/book/%E2%80%9Cthere-need-native-quality-arabic-speaker%E2%80%9D-isaac-shamosh-first-oriental-lecturer" target="_blank" class="pub-link">↗ Blog Post</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cat-reviews" class="category">
+        <h3 class="category-title">ביקורות</h3>
+        <div class="pub-item">
+            <div class="pub-year">2020</div>
+            <div class="pub-content">
+                <h4>ביקורת על Eyal Clyne, Orientalism, Zionism and Academic Practice</h4>
+                <p>המזרח החדש 59 (2020), עמ׳ 207–210.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <h2>נהיה בקשר?</h2>
+    <a href="mailto:amit.levy@mail.huji.ac.il" class="footer-email">amit.levy@mail.huji.ac.il</a>
+    <div class="footer-socials">
+        <a href="https://huji.academia.edu/AmitLevy" target="_blank">Academia.edu</a>
+        <a href="https://x.com/_amitlevy" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/amit.levy2" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+    </div>
+    <p style="margin-top: 5rem; opacity: 0.5; font-size: 0.95rem;">&copy; 2026 ד"ר עמית לוי. האוניברסיטה העברית בירושלים.</p>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('section').forEach(s => observer.observe(s));
+
+    window.addEventListener('scroll', () => {
+        const winScroll = document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const bar = document.getElementById('progress-bar');
+        if(bar) bar.style.width = (winScroll / height) * 100 + "%";
+
+        const nav = document.getElementById('nav');
+        if (winScroll > 60) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+
+        let current = "";
+        document.querySelectorAll('section').forEach(s => {
+            const sectionTop = s.offsetTop;
+            if (winScroll >= sectionTop - 350) current = s.getAttribute('id');
+        });
+        document.querySelectorAll('nav a').forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('data-target') === current) a.classList.add('active');
+        });
+    });
+
+    function filterPubs() {
+        const val = document.getElementById('searchBar').value.toLowerCase();
+        document.querySelectorAll('.pub-item').forEach(item => {
+            const text = item.innerText.toLowerCase();
+            item.style.display = text.includes(val) ? "grid" : "none";
+        });
+        document.querySelectorAll('.category').forEach(cat => {
+            const hasVisible = Array.from(cat.querySelectorAll('.pub-item')).some(i => i.style.display !== "none");
+            cat.style.display = hasVisible ? "block" : "none";
+        });
+    }
+
+    document.querySelectorAll('nav a, .pub-sub-nav a').forEach(a => {
+        a.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = a.getAttribute('data-target');
+            if (targetId) {
+                const target = document.getElementById(targetId);
+                if(target) {
+                    target.classList.add('visible');
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
+
+    window.onload = () => { document.querySelectorAll('section').forEach(s => s.classList.add('visible')); };
+</script>
+
+</body>
+</html>        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Rubik', sans-serif; }
+
+        #progress-bar {
+            position: fixed;
+            top: 0; right: 0; height: 3px;
+            background: linear-gradient(to left, var(--accent), #e2b378);
+            width: 0%; z-index: 1001;
+            transition: width 0.1s ease;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 9999;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 1.5rem 0; transition: var(--transition);
+        }
+
+        nav.scrolled {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(27, 58, 75, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: center; gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none; color: var(--primary);
+            font-weight: 700; font-size: 0.95rem;
+            position: relative; padding: 5px 0; cursor: pointer;
+        }
+
+        nav a::after {
+            content: ''; position: absolute; bottom: 0; right: 0;
+            width: 0; height: 2px; background: var(--accent); transition: width 0.3s;
+        }
+
+        nav a:hover::after, nav a.active::after { width: 100%; }
+        nav a.active { color: var(--accent); }
+
+        .lang-switch { position: fixed; top: 1.5rem; left: 2rem; z-index: 1002; }
+        .lang-switch a {
+            text-decoration: none; color: var(--primary);
+            font-weight: 800; font-size: 0.85rem;
+            border: 1px solid var(--primary); padding: 4px 12px;
+            border-radius: 2px; transition: all 0.3s; background: var(--bg);
+        }
+        .lang-switch a:hover { background: var(--primary); color: white; }
+
+        .hero {
+            height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center;
+            background: radial-gradient(circle at 10% 10%, #e0f2f1 0%, transparent 40%),
+                        radial-gradient(circle at 90% 90%, var(--sand) 0%, transparent 40%);
+            padding: 0 1.5rem;
+        }
+
+        .hero h1 { font-size: clamp(3.5rem, 12vw, 7rem); font-weight: 900; color: var(--primary); line-height: 1; transform: translateY(40px); opacity: 0; animation: slideUpFade 1.2s forwards 0.2s; }
         .hero p { font-size: 1.6rem; color: var(--accent); font-weight: 400; border-top: 1px solid var(--accent); padding-top: 10px; margin-top: 10px; transform: translateY(40px); opacity: 0; animation: slideUpFade 1.2s forwards 0.5s; }
 
         .scroll-indicator {
