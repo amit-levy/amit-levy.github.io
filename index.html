@@ -1,27 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+
     <!-- Standard SEO -->
     <title>Dr. Amit Levy | Cultural & Intellectual Historian</title>
     <meta name="description" content="Dr. Amit Levy is an Assistant Professor (Senior Lecturer) at the Department of Middle Eastern and African History, Tel Aviv University, specializing in the history of knowledge, migration, and Middle Eastern Studies.">
-    <meta name="keywords" content="Amit Levy, History of Knowledge, Middle Eastern Studies, A New Orient, Hebrew University, Historian">
+    <meta name="keywords" content="Amit Levy, History of Knowledge, Middle Eastern Studies, A New Orient, Tel Aviv University, Orientalism, Historian">
+    <link rel="canonical" href="https://amitlevy.me/">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='6' fill='%230f172a'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23b45309' text-anchor='middle'%3EAL%3C/text%3E%3C/svg%3E">
 
     <!-- Social Media Metadata (Open Graph / WhatsApp / Facebook) -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://amitlevy.me/">
     <meta property="og:title" content="Dr. Amit Levy | Cultural & Intellectual Historian">
     <meta property="og:description" content="Assistant Professor at Tel Aviv University. Author of 'A New Orient'.">
-    <meta property="og:image" content="DSC_1864.jpg">
+    <meta property="og:image" content="https://amitlevy.me/DSC_1864.jpg">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Dr. Amit Levy | Cultural & Intellectual Historian">
     <meta name="twitter:description" content="Assistant Professor at Tel Aviv University. Author of 'A New Orient'.">
-    <meta name="twitter:image" content="DSC_1864.jpg">
+    <meta name="twitter:image" content="https://amitlevy.me/DSC_1864.jpg">
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Structured data (helps search engines show a profile and book card) -->
+    <script type="application/ld+json">
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Amit Levy",
+            "honorificPrefix": "Dr.",
+            "jobTitle": "Assistant Professor (Senior Lecturer)",
+            "affiliation": {
+                "@type": "CollegeOrUniversity",
+                "name": "Tel Aviv University",
+                "department": { "@type": "Organization", "name": "Department of Middle Eastern and African History" }
+            },
+            "email": "mailto:amitlevy5@tauex.tau.ac.il",
+            "url": "https://amitlevy.me/",
+            "image": "https://amitlevy.me/DSC_1864.jpg",
+            "knowsAbout": ["History of Knowledge", "Middle Eastern History", "Imperial History", "Modern European History", "Jewish Studies", "Israel Studies", "Orientalism"],
+            "sameAs": [
+                "https://orcid.org/0000-0002-2286-8228",
+                "https://huji.academia.edu/AmitLevy",
+                "https://x.com/_amitlevy",
+                "https://www.facebook.com/amit.levy2"
+            ]
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "Book",
+            "name": "A New Orient: From German Scholarship to Middle Eastern Studies in Israel",
+            "author": { "@type": "Person", "name": "Amit Levy" },
+            "publisher": { "@type": "Organization", "name": "Brandeis University Press" },
+            "datePublished": "2024",
+            "award": "Jordan Schnitzer First Book Publication Award, Association for Jewish Studies",
+            "url": "https://brandeisuniversitypress.com/title/a-new-orient-from-german-scholarship-to-middle-eastern-studies-in-israel/"
+        }
+    ]
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0f172a; /* Deep Slate */
@@ -35,6 +79,9 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        [hidden] { display: none !important; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -44,6 +91,11 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
+
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+        /* Keep anchor targets clear of the fixed navbar */
+        section, .category { scroll-margin-top: 110px; }
 
         /* Reading Progress Bar */
         #progress-bar {
@@ -66,7 +118,7 @@
             opacity: 0.03;
             pointer-events: none;
             z-index: 9999;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
         /* --- Custom Scrollbar --- */
@@ -109,7 +161,6 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             position: relative;
-            cursor: pointer;
             padding: 5px 0;
         }
 
@@ -130,6 +181,8 @@
         /* --- Hero Section --- */
         .hero {
             height: 100vh;
+            min-height: 480px;
+            max-width: none;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -179,16 +232,18 @@
             padding: 10rem 1.5rem;
             max-width: 1150px;
             margin: 0 auto;
+        }
+
+        /* Fade-in only when JavaScript is running, so content is never stuck hidden */
+        .js .reveal {
             opacity: 0;
             transform: translateY(60px);
             transition: opacity 1s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-            visibility: hidden;
         }
 
-        section.visible {
+        .js .reveal.visible {
             opacity: 1;
-            transform: translateY(0);
-            visibility: visible;
+            transform: none;
         }
 
         /* --- About Section & Interactive Image --- */
@@ -212,7 +267,6 @@
             width: 100%;
             margin-bottom: 2.5rem;
             position: relative;
-            cursor: pointer;
         }
 
         .profile-img {
@@ -251,6 +305,20 @@
             border-width: 2px;
         }
 
+        /* Touch screens can't hover, so show the photo in color there */
+        @media (hover: none) {
+            .profile-img { filter: none; }
+        }
+
+        .sidebar-heading {
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2.5px;
+            font-weight: 700;
+        }
+
         .tag {
             font-size: 0.7rem;
             background: var(--primary);
@@ -262,6 +330,21 @@
             font-weight: 500;
             display: inline-block;
             margin: 0 5px 5px 0;
+        }
+
+        .sidebar-contact {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .sidebar-email {
+            color: var(--accent);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            overflow-wrap: anywhere;
         }
 
         .content-body h2 {
@@ -277,6 +360,7 @@
             margin-bottom: 1.8rem;
             color: var(--text);
             text-align: justify;
+            hyphens: auto;
             font-weight: 300;
         }
 
@@ -330,7 +414,7 @@
             box-shadow: 25px 25px 60px rgba(0,0,0,0.6);
             transition: transform 0.4s ease;
         }
-        
+
         .book-cover-frame:hover { transform: perspective(1000px) rotateY(-5deg) scale(1.02); }
 
         .book-cover-frame img {
@@ -341,6 +425,9 @@
         }
 
         .book-info h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 0.5rem; }
+        .book-subtitle { font-style: italic; opacity: 0.9; margin-bottom: 1rem; font-size: 1.4rem; font-weight: 300; }
+        .book-desc { margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.8; opacity: 0.85; }
+
         .award-banner {
             display: inline-block;
             background: var(--accent);
@@ -416,14 +503,17 @@
             position: relative;
         }
         .blurb p { font-style: italic; font-size: 1.05rem; color: var(--text); line-height: 1.6; margin-bottom: 1rem; }
-        .blurb cite { display: block; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; color: var(--accent); }
+        .blurb cite { display: block; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; color: var(--accent); font-style: normal; }
         .blurb cite span { font-weight: 400; color: var(--muted); text-transform: none; }
 
         /* --- Publications & Links --- */
         .pub-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 3rem; gap: 20px; }
+        .pub-header h2 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--primary); }
         .search-container { width: 100%; max-width: 400px; }
-        #searchBar { width: 100%; padding: 1rem 2rem; border: 1px solid #e2e8f0; border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 0.95rem; outline: none; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
-        #searchBar:focus { border-color: var(--accent); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        #searchBar { width: 100%; padding: 1rem 2rem; border: 1px solid #e2e8f0; border-radius: 50px; font-family: 'Inter', sans-serif; font-size: 0.95rem; outline: none; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.02); transition: border-color 0.2s, box-shadow 0.2s; }
+        #searchBar:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.15), 0 10px 25px rgba(0,0,0,0.05); }
+
+        .no-results { margin-top: 3rem; color: var(--muted); font-style: italic; }
 
         .pub-sub-nav {
             display: flex;
@@ -453,19 +543,24 @@
         }
         .pub-sub-nav a:hover { color: var(--accent); }
 
+        .category { scroll-margin-top: 150px; }
         .category-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-top: 6rem; margin-bottom: 2.5rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 1.2rem; display: flex; align-items: center; gap: 20px; }
         .category-title::after { content: ''; flex: 1; height: 1px; background: #e2e8f0; }
 
-        .pub-item { display: grid; grid-template-columns: 120px 1fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid #f1f5f9; transition: all 0.4s ease; }
+        .pub-group + .pub-group { margin-top: 4rem; }
+
+        .pub-item { display: grid; grid-template-columns: 120px 1fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid #f1f5f9; transition: transform 0.4s ease; }
         .pub-item:hover { transform: translateX(10px); }
         .pub-year { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--muted); opacity: 0.5; }
+        .pub-year.text-label { font-size: 1rem; letter-spacing: 1px; padding-top: 0.4rem; }
         .pub-content h4 { font-size: 1.25rem; font-weight: 600; color: var(--primary); margin-bottom: 0.6rem; line-height: 1.35; }
         .pub-content p { color: var(--text); font-size: 1.05rem; line-height: 1.6; font-weight: 300; }
-        
+
         .pub-links {
             margin-top: 1.5rem;
             display: flex;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 10px 20px;
         }
         .pub-link {
             text-decoration: none;
@@ -481,7 +576,9 @@
         .pub-link.pdf::before { content: "📥"; }
         .pub-link.web::before { content: "↗"; }
 
+        .award-tags { display: flex; flex-wrap: wrap; gap: 8px; }
         .pub-award-tag { display: inline-block; margin-top: 12px; font-size: 0.75rem; background: #fef3c7; padding: 6px 14px; border-radius: 4px; color: #92400e; font-weight: 700; margin-right: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .award-tags .pub-award-tag { margin-right: 0; }
 
         .pub-review {
             margin-top: 12px;
@@ -507,8 +604,10 @@
         /* --- Footer --- */
         footer { background: var(--primary); color: rgba(255,255,255,0.5); padding: 8rem 1.5rem; text-align: center; }
         footer h2 { font-family: 'Playfair Display', serif; color: white; font-size: 3rem; margin-bottom: 2.5rem; line-height: 1; }
-        .footer-email { color: white; font-size: 1.8rem; text-decoration: none; font-weight: 300; display: inline-block; position: relative; padding-bottom: 10px; }
+        .footer-contact { margin-top: 2.5rem; }
+        .footer-email { color: white; font-size: 1.8rem; text-decoration: none; font-weight: 300; display: inline-block; position: relative; padding-bottom: 10px; overflow-wrap: anywhere; }
         .footer-email::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background: var(--accent); }
+        .footer-copy { margin-top: 5rem; font-size: 0.8rem; opacity: 0.6; }
 
         .footer-socials {
             margin-top: 1.5rem;
@@ -533,15 +632,41 @@
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); } 40% { transform: translateY(-10px) translateX(-50%); } 60% { transform: translateY(-5px) translateX(-50%); } }
 
         @media (max-width: 950px) {
+            section { padding: 6rem 1.25rem; }
             .about-grid, .book-layout, .reception-container { grid-template-columns: 1fr; gap: 4rem; }
             .sidebar-card { position: static; width: 100%; }
             .book-layout { padding: 4rem 2rem; }
+            .book-info h2, .content-body h2, .pub-header h2 { font-size: 2.6rem; }
             .hero h1 { font-size: 3.5rem; }
             .pub-item { grid-template-columns: 1fr; gap: 1rem; }
+            .pub-item:hover { transform: none; }
             .pub-year { font-size: 1.2rem; opacity: 1; }
+            .pub-year.text-label { padding-top: 0; }
             .pub-sub-nav { top: 58px; padding-left: 20px; padding-right: 20px; margin-left: -20px; margin-right: -20px; width: calc(100% + 40px); }
-            .nav-container { gap: 15px; }
-            nav a { font-size: 0.65rem; letter-spacing: 1px; }
+            .nav-container { gap: 18px; }
+            nav a { font-size: 0.72rem; letter-spacing: 1px; }
+        }
+
+        @media (max-width: 600px) {
+            .content-body p { text-align: left; font-size: 1.1rem; }
+            .hero p { letter-spacing: 3px; font-size: 0.95rem; }
+            .book-layout { padding: 3rem 1.5rem; }
+            .footer-email { font-size: 1.3rem; }
+        }
+
+        /* Respect visitors who turn off animations */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .js .reveal { opacity: 1; transform: none; transition: none; }
+            .hero h1, .hero p { animation: none; opacity: 1; transform: none; }
+            .scroll-indicator { animation: none; }
+        }
+
+        @media print {
+            nav, #progress-bar, .scroll-indicator, .search-container, .pub-sub-nav { display: none; }
+            .js .reveal { opacity: 1; transform: none; }
+            .hero { height: auto; padding: 2rem 0; }
+            .hero h1, .hero p { animation: none; opacity: 1; transform: none; }
         }
     </style>
 </head>
@@ -549,30 +674,32 @@
 
 <div id="progress-bar"></div>
 
-<nav id="nav">
+<nav id="nav" aria-label="Main">
     <div class="nav-container">
-        <a data-target="hero" class="active">Home</a>
-        <a data-target="about">About</a>
-        <a data-target="book-section">A New Orient</a>
-        <a data-target="publications">Publications</a>
+        <a href="#hero" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#book-section">A New Orient</a>
+        <a href="#publications">Publications</a>
     </div>
 </nav>
 
-<section id="hero" class="hero visible" style="opacity:1; transform:none; visibility: visible;">
+<main>
+
+<section id="hero" class="hero">
     <h1>Dr. Amit Levy</h1>
     <p>Historian of Knowledge and Migration</p>
-    <div class="scroll-indicator">
+    <div class="scroll-indicator" aria-hidden="true">
         <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
     </div>
 </section>
 
-<section id="about">
+<section id="about" class="reveal">
     <div class="about-grid">
         <aside class="sidebar-card">
             <div class="profile-wrapper">
-                <img src="DSC_1864.jpg" alt="Dr. Amit Levy" class="profile-img" onerror="this.src='https://via.placeholder.com/420x550/ddd/888?text=Dr.+Amit+Levy'">
+                <img src="DSC_1864.jpg" alt="Portrait of Dr. Amit Levy" class="profile-img">
             </div>
-            <h3 style="margin-bottom: 1.2rem; color: var(--primary); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2.5px; font-weight: 700;">Research Specialization</h3>
+            <h3 class="sidebar-heading">Research Specialization</h3>
             <div class="interests-tag-cloud">
                 <span class="tag">History of Knowledge</span>
                 <span class="tag">Middle Eastern History</span>
@@ -581,46 +708,46 @@
                 <span class="tag">Jewish Studies</span>
                 <span class="tag">Israel Studies</span>
             </div>
-            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(0,0,0,0.05);">
-                <a href="mailto:amit.levy@mail.huji.ac.il" style="color: var(--accent); font-weight: 700; text-decoration: none; font-size: 0.95rem; letter-spacing: 0.5px;">amit.levy@mail.huji.ac.il</a>
-                
+            <div class="sidebar-contact">
+                <a href="mailto:amitlevy5@tauex.tau.ac.il" class="sidebar-email">amitlevy5@tauex.tau.ac.il</a>
+
                 <div class="sidebar-links">
-                    <a href="https://huji.academia.edu/AmitLevy" target="_blank">Academia.edu</a>
-                    <a href="https://x.com/_amitlevy" target="_blank">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> @_amitlevy
+                    <a href="https://orcid.org/0000-0002-2286-8228" target="_blank" rel="noopener">ORCID</a>
+                    <a href="https://huji.academia.edu/AmitLevy" target="_blank" rel="noopener">Academia.edu</a>
+                    <a href="https://x.com/_amitlevy" target="_blank" rel="noopener">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> @_amitlevy
                     </a>
-                    <a href="https://www.facebook.com/amit.levy2" target="_blank">Facebook</a>
+                    <a href="https://www.facebook.com/amit.levy2" target="_blank" rel="noopener">Facebook</a>
                 </div>
             </div>
         </aside>
-        
-        <main class="content-body">
+
+        <div class="content-body">
             <h2>About Me</h2>
-            <p>I am a cultural and intellectual historian specializing in modern Middle Eastern, European, and Jewish history, imperial history, and the global history of knowledge. My research examines how ideas, scholarly practices, and institutions migrate across borders and take shape in imperial and colonial contexts, offering multifocal perspectives on modern intellectual and institutional change. I am an Assitant Professor at the Department of Middle Eastern and African History, Tel Aviv University.</p>
+            <p>I am a cultural and intellectual historian specializing in modern Middle Eastern, European, and Jewish history, imperial history, and the global history of knowledge. My research examines how ideas, scholarly practices, and institutions migrate across borders and take shape in imperial and colonial contexts, offering multifocal perspectives on modern intellectual and institutional change. I am an Assistant Professor (Senior Lecturer) in the Department of Middle Eastern and African History at Tel Aviv University.</p>
 
-            <p>My first book, <strong><em>A New Orient: From German Scholarship to Middle Eastern Studies in Israel</em></strong> (Brandeis University Press, 2024), explores the migration of German academic traditions into new political and cultural settings. The book, which evolved from my award-winning dissertation, was honored with the <strong>Jordan Schnitzer First Book Publication Award</strong> from the Association for Jewish Studies. A Hebrew edition of the work was published by Magnes Press in 2024 and received the <strong>Ish-Shalom Award</strong> from Yad Yitzhak Ben-Zvi.</p>
-
-        </main>
+            <p>My first book, <strong><em>A New Orient: From German Scholarship to Middle Eastern Studies in Israel</em></strong> (Brandeis University Press, 2024), explores the migration of German academic traditions into new political and cultural settings. The book, which grew out of my doctoral dissertation, was honored with the <strong>Jordan Schnitzer First Book Publication Award</strong> from the Association for Jewish Studies. A Hebrew edition was published by Magnes Press in 2024 and received the <strong>Ish-Shalom Award</strong> from Yad Yitzhak Ben-Zvi.</p>
+        </div>
     </div>
 </section>
 
-<section id="book-section">
+<section id="book-section" class="reveal">
     <div class="book-layout">
         <div class="book-info">
             <span class="award-banner">Jordan Schnitzer First Book Publication Award Winner</span>
             <h2>A New Orient</h2>
-            <p style="font-style: italic; opacity: 0.9; margin-bottom: 1rem; font-size: 1.4rem; font-weight: 300;">From German Scholarship to Middle Eastern Studies in Israel</p>
-            
-            <p class="publisher-info">Published by Brandeis University Press (2024)</p>
-            
-            <p style="margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.8; opacity: 0.85;">A definitive study on the profound impact of German-Jewish émigré scholars on the establishment of Middle Eastern studies in Mandatory Palestine. This work reveals the complex negotiation between traditional German philology and the emerging political realities of the Middle East.</p>
+            <p class="book-subtitle">From German Scholarship to Middle Eastern Studies in Israel</p>
 
-            <a href="https://brandeisuniversitypress.com/title/a-new-orient-from-german-scholarship-to-middle-eastern-studies-in-israel/" target="_blank" class="btn-gold">Order from Brandeis UP</a>
+            <p class="publisher-info">Published by Brandeis University Press (2024)</p>
+
+            <p class="book-desc">This book traces the impact of German-Jewish émigré scholars on the establishment of Middle Eastern studies in Mandatory Palestine and Israel, revealing the complex negotiation between the traditions of German philology and the emerging political realities of the Middle East.</p>
+
+            <a href="https://brandeisuniversitypress.com/title/a-new-orient-from-german-scholarship-to-middle-eastern-studies-in-israel/" target="_blank" rel="noopener" class="btn-gold">Order from Brandeis UP</a>
         </div>
-        
+
         <div class="book-visual">
             <div class="book-cover-frame">
-                <img src="book-cover.png" alt="A New Orient - Book Cover" onerror="this.src='https://via.placeholder.com/340x510/b45309/ffffff?text=A+NEW+ORIENT'">
+                <img src="book-cover.png" alt="Cover of A New Orient: From German Scholarship to Middle Eastern Studies in Israel" loading="lazy" decoding="async">
             </div>
         </div>
     </div>
@@ -628,29 +755,29 @@
     <div class="reception-container">
         <div class="media-links">
             <h3>Media & Conversations</h3>
-            <a href="https://tlv1.fm/the-tel-aviv-review/2025/05/26/how-do-you-say-orientalism-in-hebrew/" target="_blank" class="media-card">
-                <span class="media-icon">🎙️</span>
+            <a href="https://tlv1.fm/the-tel-aviv-review/2025/05/26/how-do-you-say-orientalism-in-hebrew/" target="_blank" rel="noopener" class="media-card">
+                <span class="media-icon" aria-hidden="true">🎙️</span>
                 <div>
                     <h4>The Tel Aviv Review (TLV1)</h4>
                     <p>"How do you say Orientalism in Hebrew?" — An interview with Dr. Amit Levy on the intellectual roots of Israeli Middle Eastern Studies.</p>
                 </div>
             </a>
-            <a href="https://cdnapisec.kaltura.com/html5/html5lib/v2.101/mwEmbedFrame.php/p/4297403/uiconf_id/48867372/entry_id/1_o4xit5c4?wid=_4297403&iframeembed=true&playerId=kaltura_player&entry_id=1_o4xit5c4" target="_blank" class="media-card">
-                <span class="media-icon">🎬</span>
+            <a href="https://cdnapisec.kaltura.com/html5/html5lib/v2.101/mwEmbedFrame.php/p/4297403/uiconf_id/48867372/entry_id/1_o4xit5c4?wid=_4297403&amp;iframeembed=true&amp;playerId=kaltura_player&amp;entry_id=1_o4xit5c4" target="_blank" rel="noopener" class="media-card">
+                <span class="media-icon" aria-hidden="true">🎬</span>
                 <div>
                     <h4>Conversation with Arie Dubnov</h4>
                     <p>Tauber Institute Author Conversations: A deep dive into the migration of knowledge and German-Jewish heritage.</p>
                 </div>
             </a>
-            <a href="https://journals.openedition.org/rhsh/12132?lang=en" target="_blank" class="media-card">
-                <span class="media-icon">📖</span>
+            <a href="https://journals.openedition.org/rhsh/12132?lang=en" target="_blank" rel="noopener" class="media-card">
+                <span class="media-icon" aria-hidden="true">📖</span>
                 <div>
-                    <h4>Review by Sabine Mangold</h4>
+                    <h4>Review by Sabine Mangold-Will</h4>
                     <p>Revue d’histoire des sciences humaines (2026). "A study well worth reading... calmly and quietly dispels long-held images."</p>
                 </div>
             </a>
-            <a href="https://brill.com/view/journals/wdi/aop/article-10.1163-15700607-20262021/article-10.1163-15700607-20262021.xml" target="_blank" class="media-card">
-                <span class="media-icon">📚</span>
+            <a href="https://brill.com/view/journals/wdi/aop/article-10.1163-15700607-20262021/article-10.1163-15700607-20262021.xml" target="_blank" rel="noopener" class="media-card">
+                <span class="media-icon" aria-hidden="true">📚</span>
                 <div>
                     <h4>Review by Nora Derbal</h4>
                     <p>Die Welt des Islams (2026). "Amit Levy’s carefully crafted A New Orient makes a powerful intervention... The book is a treasure trove."</p>
@@ -660,37 +787,39 @@
 
         <div class="praise">
             <h3>Critical Praise</h3>
-            <div class="blurb">
+            <blockquote class="blurb">
                 <p>"An engaging story of German Jewish Orientalists... Levy explores the dilemmas faced by these scholars and the tensions between European traditions and Middle Eastern reality."</p>
                 <cite>Hillel Cohen <span>— Hebrew University of Jerusalem</span></cite>
-            </div>
-            <div class="blurb">
+            </blockquote>
+            <blockquote class="blurb">
                 <p>"A fine model for how to write a fair-minded history of academic institutions in the post-colonial world."</p>
                 <cite>Suzanne L. Marchand <span>— Louisiana State University</span></cite>
-            </div>
-            <div class="blurb">
+            </blockquote>
+            <blockquote class="blurb">
                 <p>"Levy deserves special praise for providing a nuanced history that will be received with great interest... for anyone interested in Orientalism."</p>
                 <cite>Zvi Ben-Dor Benite <span>— New York University</span></cite>
-            </div>
+            </blockquote>
         </div>
     </div>
 </section>
 
-<section id="publications">
+<section id="publications" class="reveal">
     <div class="pub-header">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 3.5rem;">Publications</h2>
+        <h2>Publications</h2>
         <div class="search-container">
-            <input type="text" id="searchBar" placeholder="Search title or keyword..." onkeyup="filterPublications()">
+            <input type="search" id="searchBar" placeholder="Search title or keyword..." aria-label="Search publications">
         </div>
     </div>
 
     <div class="pub-sub-nav">
         <a href="#cat-books">Books</a>
-        <a href="#cat-peer">Peer-Reviewed Articles</a>
-        <a href="#cat-volumes">Academic Volumes</a>
-        <a href="#cat-catalogs">Magazines & Blogs</a>
-        <a href="#cat-reviews">Reviews</a>
+        <a href="#cat-peer">Articles & Chapters</a>
+        <a href="#cat-other">Other Contributions</a>
+        <a href="#cat-magazines">Magazines & Blogs</a>
+        <a href="#cat-reviews">Book Reviews</a>
     </div>
+
+    <p id="no-results" class="no-results" hidden>No publications match your search.</p>
 
     <!-- BOOKS -->
     <div id="cat-books" class="category">
@@ -704,9 +833,9 @@
                 <div class="pub-review">Reviewed by Sabine Mangold-Will for Revue d’histoire des sciences humaines 47 (2026): 241–44.</div>
                 <div class="pub-review">Reviewed by Nora Derbal for Die Welt des Islams (2026).</div>
                 <div class="pub-links">
-                    <a href="https://brandeisuniversitypress.com/title/a-new-orient-from-german-scholarship-to-middle-eastern-studies-in-israel/" target="_blank" class="pub-link web">Publisher Page</a>
-                    <a href="https://journals.openedition.org/rhsh/12132?lang=en" target="_blank" class="pub-link web">Review (Mangold)</a>
-                    <a href="https://brill.com/view/journals/wdi/aop/article-10.1163-15700607-20262021/article-10.1163-15700607-20262021.xml" target="_blank" class="pub-link web">Review (Derbal)</a>
+                    <a href="https://brandeisuniversitypress.com/title/a-new-orient-from-german-scholarship-to-middle-eastern-studies-in-israel/" target="_blank" rel="noopener" class="pub-link web">Publisher Page</a>
+                    <a href="https://journals.openedition.org/rhsh/12132?lang=en" target="_blank" rel="noopener" class="pub-link web">Review (Mangold-Will)</a>
+                    <a href="https://brill.com/view/journals/wdi/aop/article-10.1163-15700607-20262021/article-10.1163-15700607-20262021.xml" target="_blank" rel="noopener" class="pub-link web">Review (Derbal)</a>
                 </div>
             </div>
         </div>
@@ -715,7 +844,7 @@
             <div class="pub-content">
                 <h4>A New Orient: From German Orientalism to Israeli Mizrahanut</h4>
                 <p>Jerusalem: The Hebrew University Magnes Press (Hebrew).</p>
-                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <div class="award-tags">
                     <span class="pub-award-tag">M. Ish-Shalom Award (Yad Yitzhak Ben-Zvi)</span>
                     <span class="pub-award-tag">Honorable Mention, Am Ve’Olam Award</span>
                     <span class="pub-award-tag">Honorable Mention, Zalman Shazar Award</span>
@@ -724,7 +853,7 @@
                     Reviewed by Gil Eyal for Israeli Sociology 26, no. 1 (2025): 169–171 (Hebrew); Yoav Alon for Israel 34 (2025): 207–211 (Hebrew); Hanan Harif for The New East 64 (2025): 275–78 (Hebrew); Meir Hatina for Chidushim 27, no. 2 (2025): 247–52 (Hebrew).
                 </div>
                 <div class="pub-links">
-                    <a href="https://www.magnespress.co.il/book/A_New_Orient-8610$0" target="_blank" class="pub-link web">Publisher Page</a>
+                    <a href="https://www.magnespress.co.il/book/A_New_Orient-8610$0" target="_blank" rel="noopener" class="pub-link web">Publisher Page</a>
                 </div>
             </div>
         </div>
@@ -733,114 +862,112 @@
     <!-- PEER-REVIEWED -->
     <div id="cat-peer" class="category">
         <h3 class="category-title">Peer-Reviewed Journal Articles & Book Chapters</h3>
-        
-        <div class="pub-status-label">Accepted</div>
-        <div class="pub-item">
-            <div class="pub-year">--</div>
-            <div class="pub-content">
-                <h4>’To Know the Learned Arab’: Students from Mount Scopus at the American University of Beirut, 1934–1940</h4>
-                <p>Zion (Hebrew).</p>
-            </div>
-        </div>
 
-        <div class="pub-status-label" style="margin-top: 4rem;">Published</div>
-        
-        <div class="pub-item">
-            <div class="pub-year">2025</div>
-            <div class="pub-content">
-                <h4>Whose Jewish History is it Anyway? Ideology and Practice in the Study of the Jewish Communities from the Islamic World in Nascent Israel</h4>
-                <p>(co-authored with Hanan Harif). Journal of Modern Jewish Studies 24, no. 2: 368–92.</p>
-                <div class="pub-links">
-                    <a href="https://www.tandfonline.com/doi/full/10.1080/14725886.2025.2462317" target="_blank" class="pub-link web">Read here (Open Access)</a>
+        <div class="pub-group">
+            <div class="pub-item">
+                <div class="pub-year">2026</div>
+                <div class="pub-content">
+                    <h4>‘To Know the Learned Arab’: Students from Mount Scopus at the American University of Beirut, 1934–1940</h4>
+                    <p>Zion 92: 67–89 (Hebrew).</p>
                 </div>
             </div>
-        </div>
-        <div class="pub-item">
-            <div class="pub-year">2025</div>
-            <div class="pub-content">
-                <h4>’Send my regards to those working on the al-Balādhurī manuscript’: The Study of Arabic and Islam in Interwar Jerusalem as Intellectual Common Ground</h4>
-                <p>In Rachel Mairs et al. (eds.), Colonial Vocabularies: Teaching and Learning Arabic in Europe (Amsterdam: Amsterdam University Press), 159–86.</p>
-                <div class="pub-links">
-                    <a href="https://www.jstor.org/content/oa_chapter_edited/jj.24215737.11?seq=1" target="_blank" class="pub-link web">Read here (Open Access)</a>
+            <div class="pub-item">
+                <div class="pub-year">2025</div>
+                <div class="pub-content">
+                    <h4>Whose Jewish History is it Anyway? Ideology and Practice in the Study of the Jewish Communities from the Islamic World in Nascent Israel</h4>
+                    <p>(co-authored with Hanan Harif). Journal of Modern Jewish Studies 24, no. 2: 368–92.</p>
+                    <div class="pub-links">
+                        <a href="https://www.tandfonline.com/doi/full/10.1080/14725886.2025.2462317" target="_blank" rel="noopener" class="pub-link web">Read here (Open Access)</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="pub-item">
-            <div class="pub-year">2024</div>
-            <div class="pub-content">
-                <h4>Visualizing Farewell: A Jewish Soldier’s Return to Postwar Germany through Private Photography</h4>
-                <p>Jewish Culture and History 25, no. 2: 233–54.</p>
-                <div class="pub-links">
-                    <a href="https://www.tandfonline.com/doi/full/10.1080/1462169X.2024.2334169" target="_blank" class="pub-link web">Read here</a>
+            <div class="pub-item">
+                <div class="pub-year">2025</div>
+                <div class="pub-content">
+                    <h4>‘Send my regards to those working on the al-Balādhurī manuscript’: The Study of Arabic and Islam in Interwar Jerusalem as Intellectual Common Ground</h4>
+                    <p>In Rachel Mairs et al. (eds.), Colonial Vocabularies: Teaching and Learning Arabic in Europe (Amsterdam: Amsterdam University Press), 159–86.</p>
+                    <div class="pub-links">
+                        <a href="https://www.jstor.org/content/oa_chapter_edited/jj.24215737.11?seq=1" target="_blank" rel="noopener" class="pub-link web">Read here (Open Access)</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="pub-item">
-            <div class="pub-year">2024</div>
-            <div class="pub-content">
-                <h4>‘A Complete, Multifaceted Discipline’: The Debate over the History of Jews in Muslim Lands and its Teaching</h4>
-                <p>(co-authored with Hanan Harif). In Uzi Rebhun and Yfaat Weiss (eds.), The History of the Hebrew University of Jerusalem: The Nation State and Higher Education (Jerusalem: Magnes Press), 687–718 (Hebrew).</p>
-            </div>
-        </div>
-        <div class="pub-item">
-            <div class="pub-year">2024</div>
-            <div class="pub-content">
-                <h4>Rediscovering the Goldziher Legacy in Jerusalem: Religion, Language, and History in the Making of a Hebrew University</h4>
-                <p>In H.J. Becker et al. (eds.), Building Bridges: Ignaz Goldziher and His Correspondents (Leiden: Brill), 139–64.</p>
-            </div>
-        </div>
-        <div class="pub-item">
-            <div class="pub-year">2023</div>
-            <div class="pub-content">
-                <h4>Conflicting German Orientalism: Zionist Arabists and Arab Scholars, 1926–1938</h4>
-                <p>British Journal of Middle Eastern Studies 50, no. 5: 1112–31.</p>
-                <div class="pub-links">
-                    <a href="https://www.tandfonline.com/doi/full/10.1080/13530194.2022.2064819" target="_blank" class="pub-link web">Read here</a>
+            <div class="pub-item">
+                <div class="pub-year">2024</div>
+                <div class="pub-content">
+                    <h4>Visualizing Farewell: A Jewish Soldier’s Return to Postwar Germany through Private Photography</h4>
+                    <p>Jewish Culture and History 25, no. 2: 233–54.</p>
+                    <div class="pub-links">
+                        <a href="https://www.tandfonline.com/doi/full/10.1080/1462169X.2024.2334169" target="_blank" rel="noopener" class="pub-link web">Read here</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="pub-item">
-            <div class="pub-year">2018</div>
-            <div class="pub-content">
-                <h4>The Archive as Storyteller: Refractions of German-Jewish Oriental Studies Migration in Personal Archives</h4>
-                <p>Jahrbuch des Dubnow-Instituts / Dubnow Institute Yearbook XVII: 425–46.</p>
-            </div>
-        </div>
-        <div class="pub-item">
-            <div class="pub-year">2016</div>
-            <div class="pub-content">
-                <h4>A Man of Contention: Martin Plessner (1900–1973) and His Encounters with the Orient</h4>
-                <p>Naharaim: Journal of German-Jewish Literature and Cultural History 10, no. 1: 79–100.</p>
-                <div class="pub-links">
-                    <a href="https://www.degruyter.com/document/doi/10.1515/naha-2016-0005/html" target="_blank" class="pub-link web">Read here</a>
+            <div class="pub-item">
+                <div class="pub-year">2024</div>
+                <div class="pub-content">
+                    <h4>‘A Complete, Multifaceted Discipline’: The Debate over the History of Jews in Muslim Lands and its Teaching</h4>
+                    <p>(co-authored with Hanan Harif). In Uzi Rebhun and Yfaat Weiss (eds.), The History of the Hebrew University of Jerusalem: The Nation State and Higher Education (Jerusalem: Magnes Press), 687–718 (Hebrew).</p>
                 </div>
             </div>
-        </div>
-        <div class="pub-item">
-            <div class="pub-year">2016</div>
-            <div class="pub-content">
-                <h4>'The Sheik': Understanding American Orientalism through Visual and Narrative Differences in Three Decades of Discussion</h4>
-                <p>Slil: Online Journal for History, Film and Television 10: 39–57 (Hebrew).</p>
-                <div class="pub-links">
-                    <a href="https://slil.huji.ac.il/sites/default/files/slil/files/04-the.sheik__0.pdf" target="_blank" class="pub-link pdf">Download PDF</a>
+            <div class="pub-item">
+                <div class="pub-year">2024</div>
+                <div class="pub-content">
+                    <h4>Rediscovering the Goldziher Legacy in Jerusalem: Religion, Language, and History in the Making of a Hebrew University</h4>
+                    <p>In H.J. Becker et al. (eds.), Building Bridges: Ignaz Goldziher and His Correspondents (Leiden: Brill), 139–64.</p>
                 </div>
             </div>
-        </div>
-        <div class="pub-item">
-            <div class="pub-year">2015</div>
-            <div class="pub-content">
-                <h4>‘Ma’alesh, Nistader’: Arabic in the Folklore of the Palmach during the 1940s</h4>
-                <p>Hayo Haya: Student History Journal 11: 46–66 (Hebrew).</p>
-                <div class="pub-links">
-                    <a href="https://openscholar.huji.ac.il/sites/default/files/hayohaya/files/11-3-levy.pdf" target="_blank" class="pub-link pdf">Download PDF</a>
+            <div class="pub-item">
+                <div class="pub-year">2023</div>
+                <div class="pub-content">
+                    <h4>Conflicting German Orientalism: Zionist Arabists and Arab Scholars, 1926–1938</h4>
+                    <p>British Journal of Middle Eastern Studies 50, no. 5: 1112–31.</p>
+                    <div class="pub-links">
+                        <a href="https://www.tandfonline.com/doi/full/10.1080/13530194.2022.2064819" target="_blank" rel="noopener" class="pub-link web">Read here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pub-item">
+                <div class="pub-year">2018</div>
+                <div class="pub-content">
+                    <h4>The Archive as Storyteller: Refractions of German-Jewish Oriental Studies Migration in Personal Archives</h4>
+                    <p>Jahrbuch des Dubnow-Instituts / Dubnow Institute Yearbook XVII: 425–46.</p>
+                </div>
+            </div>
+            <div class="pub-item">
+                <div class="pub-year">2016</div>
+                <div class="pub-content">
+                    <h4>A Man of Contention: Martin Plessner (1900–1973) and His Encounters with the Orient</h4>
+                    <p>Naharaim: Journal of German-Jewish Literature and Cultural History 10, no. 1: 79–100.</p>
+                    <div class="pub-links">
+                        <a href="https://www.degruyter.com/document/doi/10.1515/naha-2016-0005/html" target="_blank" rel="noopener" class="pub-link web">Read here</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pub-item">
+                <div class="pub-year">2016</div>
+                <div class="pub-content">
+                    <h4>‘The Sheik’: Understanding American Orientalism through Visual and Narrative Differences in Three Decades of Discussion</h4>
+                    <p>Slil: Online Journal for History, Film and Television 10: 39–57 (Hebrew).</p>
+                    <div class="pub-links">
+                        <a href="https://slil.huji.ac.il/sites/default/files/slil/files/04-the.sheik__0.pdf" target="_blank" rel="noopener" class="pub-link pdf">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pub-item">
+                <div class="pub-year">2015</div>
+                <div class="pub-content">
+                    <h4>‘Ma’alesh, Nistader’: Arabic in the Folklore of the Palmach during the 1940s</h4>
+                    <p>Hayo Haya: Student History Journal 11: 46–66 (Hebrew).</p>
+                    <div class="pub-links">
+                        <a href="https://openscholar.huji.ac.il/sites/default/files/hayohaya/files/11-3-levy.pdf" target="_blank" rel="noopener" class="pub-link pdf">Download PDF</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ACADEMIC VOLUMES -->
-    <div id="cat-volumes" class="category">
-        <h3 class="category-title">Articles in Academic Volumes</h3>
+    <!-- OTHER ACADEMIC CONTRIBUTIONS -->
+    <div id="cat-other" class="category">
+        <h3 class="category-title">Other Academic Contributions</h3>
         <div class="pub-item">
             <div class="pub-year">2020</div>
             <div class="pub-content">
@@ -865,7 +992,7 @@
     </div>
 
     <!-- MAGAZINES & BLOGS -->
-    <div id="cat-catalogs" class="category">
+    <div id="cat-magazines" class="category">
         <h3 class="category-title">Magazines & Blogs</h3>
         <div class="pub-item">
             <div class="pub-year">2024</div>
@@ -875,22 +1002,22 @@
             </div>
         </div>
         <div class="pub-item">
-            <div class="pub-year">--</div>
+            <div class="pub-year text-label">Online</div>
             <div class="pub-content">
                 <h4>German Heritage in Word Cards: The Concordance of Classical Arabic Poetry in Jerusalem</h4>
                 <p>Mimeo: Blog der Doktorandinnen und Doktoranden am Dubnow-Institut.</p>
                 <div class="pub-links">
-                    <a href="https://mimeo.dubnow.de/german-heritage-in-word-cards/" target="_blank" class="pub-link web">Blog Post</a>
+                    <a href="https://mimeo.dubnow.de/german-heritage-in-word-cards/" target="_blank" rel="noopener" class="pub-link web">Blog Post</a>
                 </div>
             </div>
         </div>
         <div class="pub-item">
-            <div class="pub-year">--</div>
+            <div class="pub-year text-label">Online</div>
             <div class="pub-content">
                 <h4>Envisioning a Hebrew University: Ignác Goldziher on the University in Jerusalem</h4>
-                <p>Mimeo: Blog der Doktorandinnen and Doktoranden am Dubnow-Institut.</p>
+                <p>Mimeo: Blog der Doktorandinnen und Doktoranden am Dubnow-Institut.</p>
                 <div class="pub-links">
-                    <a href="https://mimeo.dubnow.de/envisioning-a-hebrew-university/" target="_blank" class="pub-link web">Blog Post</a>
+                    <a href="https://mimeo.dubnow.de/envisioning-a-hebrew-university/" target="_blank" rel="noopener" class="pub-link web">Blog Post</a>
                 </div>
             </div>
         </div>
@@ -902,12 +1029,12 @@
             </div>
         </div>
         <div class="pub-item">
-            <div class="pub-year">--</div>
+            <div class="pub-year text-label">Online</div>
             <div class="pub-content">
                 <h4>‘There is a need for a native quality Arabic speaker’: Isaac Shamosh, the First Oriental Lecturer in the School of Oriental Studies, 1936–1937</h4>
                 <p>The Historical Archive of the Hebrew University Blog.</p>
                 <div class="pub-links">
-                    <a href="https://rosenzweig.huji.ac.il/book/%E2%80%9Cthere-need-native-quality-arabic-speaker%E2%80%9D-isaac-shamosh-first-oriental-lecturer" target="_blank" class="pub-link web">Blog Post</a>
+                    <a href="https://rosenzweig.huji.ac.il/book/%E2%80%9Cthere-need-native-quality-arabic-speaker%E2%80%9D-isaac-shamosh-first-oriental-lecturer" target="_blank" rel="noopener" class="pub-link web">Blog Post</a>
                 </div>
             </div>
         </div>
@@ -926,95 +1053,81 @@
     </div>
 </section>
 
+</main>
+
 <footer>
     <h2>Let's Connect!</h2>
     <p>Inquiries regarding research collaborations or <i>A New Orient</i>.</p>
-    <div style="margin-top: 2.5rem;">
-        <a href="mailto:amit.levy@mail.huji.ac.il" class="footer-email">amit.levy@mail.huji.ac.il</a>
+    <div class="footer-contact">
+        <a href="mailto:amitlevy5@tauex.tau.ac.il" class="footer-email">amitlevy5@tauex.tau.ac.il</a>
         <div class="footer-socials">
-            <a href="https://huji.academia.edu/AmitLevy" target="_blank">Academia.edu</a>
-            <a href="https://x.com/_amitlevy" target="_blank">X (@_amitlevy)</a>
-            <a href="https://www.facebook.com/amit.levy2" target="_blank">Facebook</a>
+            <a href="https://orcid.org/0000-0002-2286-8228" target="_blank" rel="noopener">ORCID</a>
+            <a href="https://huji.academia.edu/AmitLevy" target="_blank" rel="noopener">Academia.edu</a>
+            <a href="https://x.com/_amitlevy" target="_blank" rel="noopener">X (@_amitlevy)</a>
+            <a href="https://www.facebook.com/amit.levy2" target="_blank" rel="noopener">Facebook</a>
         </div>
     </div>
-    <p style="margin-top: 5rem; font-size: 0.8rem; opacity: 0.4;">&copy; 2026 Dr. Amit Levy. Hebrew University of Jerusalem.</p>
+    <p class="footer-copy">&copy; 2026 Amit Levy</p>
 </footer>
 
 <script>
-    // Robust Visibility logic
-    const observerOptions = { threshold: 0.05, rootMargin: "0px 0px -50px 0px" };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, observerOptions);
-    document.querySelectorAll('section').forEach(section => observer.observe(section));
+    // Fade sections in as they enter the viewport
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.05, rootMargin: "0px 0px -50px 0px" });
+    document.querySelectorAll('.reveal').forEach(section => revealObserver.observe(section));
 
-    // Nav Background & Progress
+    // Nav background, progress bar and active link
     const nav = document.getElementById('nav');
     const progressBar = document.getElementById('progress-bar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 80) nav.classList.add('scrolled');
-        else nav.classList.remove('scrolled');
+    const sections = document.querySelectorAll('main > section');
+    const navLinks = document.querySelectorAll('nav a');
+    let ticking = false;
 
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        progressBar.style.width = scrolled + "%";
-        
-        let current = "";
-        document.querySelectorAll('section').forEach(s => {
-            if (pageYOffset >= s.offsetTop - 300) current = s.getAttribute('id');
-        });
-        document.querySelectorAll('nav a').forEach(a => {
-            a.classList.remove('active');
-            if (a.getAttribute('data-target') === current) a.classList.add('active');
-        });
-    });
+    function updateOnScroll() {
+        const y = window.scrollY;
+        nav.classList.toggle('scrolled', y > 80);
 
-    // Filtering logic
-    function filterPublications() {
-        let input = document.getElementById('searchBar').value.toLowerCase();
-        let items = document.querySelectorAll('.pub-item');
-        items.forEach(item => {
-            let text = item.innerText.toLowerCase();
-            if (text.includes(input)) {
-                item.style.display = "grid";
-                item.style.opacity = "1";
-                item.style.transform = "translateY(0)";
-            } else {
-                item.style.display = "none";
-                item.style.opacity = "0";
-                item.style.transform = "translateY(15px)";
-            }
-        });
-        document.querySelectorAll('.category').forEach(cat => {
-            const visibleItems = cat.querySelectorAll('.pub-item[style*="display: grid"]');
-            cat.style.display = (visibleItems.length === 0 && input !== "") ? "none" : "block";
-        });
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = (maxScroll > 0 ? (y / maxScroll) * 100 : 0) + "%";
+
+        let current = sections[0].id;
+        sections.forEach(s => { if (y >= s.offsetTop - 300) current = s.id; });
+        navLinks.forEach(a => a.classList.toggle('active', a.hash === '#' + current));
+        ticking = false;
     }
 
-    // Smooth navigation
-    document.querySelectorAll('nav a, .pub-sub-nav a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('data-target') || this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            if(targetElement) {
-                targetElement.classList.add('visible');
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-                if(this.closest('nav')) {
-                    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-                    this.classList.add('active');
-                }
-            }
-        });
-    });
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(updateOnScroll);
+        }
+    }, { passive: true });
+    updateOnScroll();
 
-    window.onload = () => {
-        document.querySelectorAll('section').forEach(s => {
-            const rect = s.getBoundingClientRect();
-            if (rect.top < window.innerHeight + 100) s.classList.add('visible');
+    // Publication search
+    const searchBar = document.getElementById('searchBar');
+    const noResults = document.getElementById('no-results');
+
+    searchBar.addEventListener('input', () => {
+        const query = searchBar.value.trim().toLowerCase();
+        document.querySelectorAll('.pub-item').forEach(item => {
+            item.hidden = query !== '' && !item.textContent.toLowerCase().includes(query);
         });
-    };
+
+        let totalVisible = 0;
+        document.querySelectorAll('.pub-group, .category').forEach(group => {
+            const visible = group.querySelectorAll('.pub-item:not([hidden])').length;
+            group.hidden = visible === 0;
+            if (group.classList.contains('category')) totalVisible += visible;
+        });
+        noResults.hidden = totalVisible > 0;
+    });
 </script>
 
 </body>
